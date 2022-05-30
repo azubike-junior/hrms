@@ -61,10 +61,15 @@ import OrganizationalGoal from "./pages/Configurations/organizationalGoal/index"
 import PastRecords from "./pages/HrReports/PastRecords/index";
 import CurrentReports from "./pages/HrReports/CurrentReports/index";
 import PrivateRoute from './components/Router/PrivateRoute';
+import {createBrowserHistory}  from "history"
+
+const browserHistory = createBrowserHistory({
+  basename: "/hrms"
+})
 
 function App() {
   return (
-    <Router>
+    <Router history={browserHistory}>
       <Switch>
         <Route exact path="/hrms" component={Loginpage} />
         <div>
