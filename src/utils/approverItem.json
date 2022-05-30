@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Setup Profile",
+    "icon": "la la-user-cog",
+    "path": "/hrms/setupProfile"
+  },
+  {
+    "title": "New Appraisal",
+    "icon": "la la-comment",
+    "path": "/hrms/staffAppraisal"
+  },
+  {
+    "title": "Appraisals",
+    "icon": "la la-comments",
+    "path": "/hrms/Appraisals"
+  },
+  {
+    "title": "My Staff Appraisals",
+    "icon": "la la-comments",
+    "path": "/hrms/staffAppraisals"
+  }
+]

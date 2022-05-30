@@ -1,0 +1,20 @@
+.error-class {
+  border: 1px solid #ff0000 !important;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid green;
+  border-top-color: white;
+  margin: 0 auto;
+  animation: spinner 0.6s linear infinite;
+}
+

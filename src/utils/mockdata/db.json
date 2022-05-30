@@ -1,0 +1,380 @@
+{
+  "supervisorAppraisals": [
+    {
+      "appraisalReference": "7941a9b3-9017-40d4-9e88-efb360a5c104",
+      "staffId": "265",
+      "staffName": "Chukwuemeka Okoro",
+      "supervisorId": "328",
+      "dateSubmitted": "05/04/2022 04:30 PM",
+      "status": "SUBMITTED",
+      "kpis": [
+        {
+          "kpiId": 4,
+          "categoryId": 1,
+          "appraiseeRate": "22",
+          "kpiDescription": "This is a test Kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "27.5%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 6,
+          "categoryId": 1,
+          "appraiseeRate": "10",
+          "kpiDescription": "One more test kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "10.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 7,
+          "categoryId": 1,
+          "appraiseeRate": "44",
+          "kpiDescription": "this is the individual kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "2.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 8,
+          "categoryId": 2,
+          "appraiseeRate": "60",
+          "kpiDescription": "this is kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "8.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 9,
+          "categoryId": 2,
+          "appraiseeRate": "10",
+          "kpiDescription": "individual kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "13.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 10,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Value of operational losses",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "10.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 11,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Cost savings on Budget",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "8.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        }
+      ]
+    },
+    {
+      "appraisalReference": "19b3f272-5634-4e72-a2d0-ea2032bc2350",
+      "staffId": "012",
+      "staffName": "Tunde Oladipo ",
+      "supervisorId": "328",
+      "dateSubmitted": "05/04/2022 04:31 PM",
+      "status": "SUBMITTED",
+      "kpis": [
+        {
+          "kpiId": 4,
+          "categoryId": 1,
+          "appraiseeRate": "22",
+          "kpiDescription": "This is a test Kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "27.5%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 6,
+          "categoryId": 1,
+          "appraiseeRate": "10",
+          "kpiDescription": "One more test kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "10.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 7,
+          "categoryId": 1,
+          "appraiseeRate": "44",
+          "kpiDescription": "this is the individual kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "2.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 8,
+          "categoryId": 2,
+          "appraiseeRate": "60",
+          "kpiDescription": "this is kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "8.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 9,
+          "categoryId": 2,
+          "appraiseeRate": "10",
+          "kpiDescription": "individual kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "13.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 10,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Value of operational losses",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "10.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 11,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Cost savings on Budget",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "8.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        }
+      ]
+    },
+    {
+      "appraisalReference": "858e50ff-2c2c-4e5b-b18e-aa8f5edca021",
+      "staffId": "329",
+      "staffName": "Israel  Ikeazota",
+      "supervisorId": "328",
+      "dateSubmitted": "05/04/2022 04:32 PM",
+      "status": "SUBMITTED",
+      "kpis": [
+        {
+          "kpiId": 4,
+          "categoryId": 1,
+          "appraiseeRate": "22",
+          "kpiDescription": "This is a test Kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "27.5%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 6,
+          "categoryId": 1,
+          "appraiseeRate": "10",
+          "kpiDescription": "One more test kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "10.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 7,
+          "categoryId": 1,
+          "appraiseeRate": "44",
+          "kpiDescription": "this is the individual kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "2.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 8,
+          "categoryId": 2,
+          "appraiseeRate": "60",
+          "kpiDescription": "this is kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "8.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 9,
+          "categoryId": 2,
+          "appraiseeRate": "10",
+          "kpiDescription": "individual kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "13.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 10,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Value of operational losses",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "10.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 11,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Cost savings on Budget",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "8.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        }
+      ]
+    },
+    {
+      "appraisalReference": "07f4b148-d4a9-4c22-8756-07cfb7cd5e67",
+      "staffId": "264",
+      "staffName": "Bashir Adeyemi",
+      "supervisorId": "328",
+      "dateSubmitted": "05/04/2022 04:34 PM",
+      "status": "SUBMITTED",
+      "kpis": [
+        {
+          "kpiId": 4,
+          "categoryId": 1,
+          "appraiseeRate": "22",
+          "kpiDescription": "This is a test Kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "27.5%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 6,
+          "categoryId": 1,
+          "appraiseeRate": "10",
+          "kpiDescription": "One more test kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "10.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 7,
+          "categoryId": 1,
+          "appraiseeRate": "44",
+          "kpiDescription": "this is the individual kpi",
+          "categoryDescription": "Process",
+          "supervisorRate": "",
+          "appraiseeResult": "2.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 8,
+          "categoryId": 2,
+          "appraiseeRate": "60",
+          "kpiDescription": "this is kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "8.6%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 9,
+          "categoryId": 2,
+          "appraiseeRate": "10",
+          "kpiDescription": "individual kpi",
+          "categoryDescription": "Customer",
+          "supervisorRate": "",
+          "appraiseeResult": "13.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 10,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Value of operational losses",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "10.0%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        },
+        {
+          "kpiId": 11,
+          "categoryId": 3,
+          "appraiseeRate": "10",
+          "kpiDescription": "Cost savings on Budget",
+          "categoryDescription": "Financial",
+          "supervisorRate": "",
+          "appraiseeResult": "8.9%",
+          "supervisorResult": "",
+          "appraiseeComment": "",
+          "supervisorComment": ""
+        }
+      ]
+    }
+  ]
+}

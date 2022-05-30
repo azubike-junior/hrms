@@ -1,17 +1,63 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { store } from "./services/store/store";
+import { Provider } from "react-redux";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Switch,
+  HashRouter,
+} from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import "./assets/js/app.js";
+
+import {
+  createStore,
+  useStateMachine,
+  StateMachineProvider,
+  GlobalState,
+} from "little-state-machine";
+
+createStore(
+  {
+    data: {
+      exceptionalAchievement: "",
+      selectedBehavioralTrainings: [],
+      selectedTechnicalTrainings: [],
+      appraisalRates: {},
+      appraisalResults: {},
+      appraiseeTimeManagementScore: "",
+      appraiseePunctualityScore: "",
+      appraiseeCommunicationScore: "",
+      appraiseeProfessionalConductScore: "",
+      appraiseeAnalyticalThinkingScore: "",
+      appraiseeBehaviourArray: [],
+      appraiseeFunctionalArray: [],
+      appraiseeBehaviouralTrainings: "",
+      appraiseeFunctionalTrainings: "",
+      totalAppraisalResult: "",
+      appraiseeResults: {},
+      appraiseeRates: {},
+      values: {},
+      rateResult: "",
+      strengthResult: "",
+      secondSupervisorName: "",
+      secondLevelSupervisorId: "",
+    },
+  },
+  {}
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <StateMachineProvider>
+        <App />
+      </StateMachineProvider>
+    </Provider>
+  </React.StrictMode>
+);

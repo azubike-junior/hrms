@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Configurations",
+    "icon": "la la-cog",
+    "childrens": [
+      {
+        "title": "Setup Appraisal",
+        "path": "/hrms/config/setupAppraisal"
+      },
+      {
+        "title": "Perspectives",
+        "path": "/hrms/config/perspective"
+      },
+      {
+        "title": "Trainings",
+        "path": "/hrms/config/trainings"
+      },
+      {
+        "title": "Organizational Goal",
+        "path": "/hrms/config/organizationalGoal"
+      },
+      {
+        "title": " Team Goal",
+        "path": "/hrms/config/teamGoal"
+      },
+      {
+        "title": "  Individual KPI",
+        "path": "/hrms/config/individualKpi"
+      }
+    ]
+  },
+  {
+    "title": "Reports",
+    "icon": "la la-pie-chart",
+    "childrens": [
+      {
+        "title": "Current Reports",
+        "path": "/hrms/HrReports/currentReports"
+      },
+      {
+        "title": "Past Histories",
+        "path": "/hrms/HrReports/pastRecords"
+      }
+    ]
+  },
+
+  {
+    "title": "Setup Profile",
+    "icon": "la la-user-cog",
+    "path": "/hrms/setupProfile"
+  },
+  {
+    "title": "New Appraisal",
+    "icon": "la la-comment",
+    "path": "/hrms/staffAppraisal"
+  },
+  {
+    "title": "Appraisals",
+    "icon": "la la-comments",
+    "path": "/hrms/Appraisals"
+  },
+  {
+    "title": "My Staff Appraisals",
+    "icon": "la la-comments",
+    "path": "/hrms/staffAppraisals"
+  }
+]
