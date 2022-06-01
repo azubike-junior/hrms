@@ -24,7 +24,7 @@ import {
   NewSupervisorKpiReviewComponent,
 } from "../../components/KpiComponent";
 import { updateAppraisalByReference } from "../../services/PerformanceManagement/StaffAppraisal/updateAppraisalByReference";
-import Loader from './../../components/Loader/index';
+import Loader from "./../../components/Loader/index";
 
 const SupervisorAppraisalReview2 = () => {
   const dispatch = useDispatch();
@@ -253,9 +253,7 @@ const SupervisorAppraisalReview2 = () => {
               <h3 className="page-title">Appraisal Review</h3>
               <ul className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <Link
-                    to={`/staffAppraisalDetail/${appraisalReference}`}
-                  >
+                  <Link to={`/staffAppraisalDetail/${appraisalReference}`}>
                     Back to Appraisal Page
                   </Link>
                 </li>
@@ -347,7 +345,9 @@ const SupervisorAppraisalReview2 = () => {
                                     LAST PROMOTION DATE:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {lastPromotionDate}
+                                    {lastPromotionDate === "0001-01-01"
+                                      ? "N/A"
+                                      : lastPromotionDate}
                                   </div>
                                 </div>
                               </div>
@@ -847,13 +847,12 @@ const SupervisorAppraisalReview2 = () => {
                 >
                   <div className="d-flex align-items-center justify-content-center">
                     <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
-                      <a
-                        href="#"
+                      <button
                         className="btn btn-block btn-suntrust font-weight-700"
                         onClick={() => toggleModal()}
                       >
                         {updateAppraiseLoading ? <Loader /> : "Confirm"}
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -875,7 +874,7 @@ const SupervisorAppraisalReview2 = () => {
               <div className="modal-btn delete-action">
                 <div className="row d-flex align-items-center justify-content-center">
                   <div className="col-6">
-                    <a
+                    <button
                       className="btn btn-block btn-primary"
                       onClick={() => {
                         submitAppraisal();
@@ -883,7 +882,7 @@ const SupervisorAppraisalReview2 = () => {
                       }}
                     >
                       Yes
-                    </a>
+                    </button>
                   </div>
                   <div className="col-6">
                     <button

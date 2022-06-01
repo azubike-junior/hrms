@@ -16,6 +16,7 @@ import { updateCommentSection } from "../../../services/PerformanceManagement/St
 import { NewSupervisorKpiReviewComponent } from "../../../components/KpiComponent/index";
 import { getAppraisalByReferenceId } from "../../../services/PerformanceManagement/StaffAppraisal/getAppraisalByReference";
 import RejectionModal from "../../../components/RejectionModal";
+import RejectionModalByHr from "./../RejectModalByHr/index";
 
 const ViewAppraisalByHr = () => {
   const dispatch = useDispatch();
@@ -40,8 +41,10 @@ const ViewAppraisalByHr = () => {
   const {
     departmentName,
     gradeName,
-    secondLevelSupervisorStaffId,
+    // secondLevelSupervisorId,
+    firstName, lastName,
     secondLevelSupervisorName,
+    staffId: loggedInStaffId,
     unitName,
   } = staffData;
 
@@ -65,6 +68,7 @@ const ViewAppraisalByHr = () => {
     appraiseeComment,
     recommendation,
     status,
+    secondLevelSupervisorId,
     supervisorTimeManagementScore,
     supervisorPunctualityScore,
     supervisorProfessionalConductScore,
@@ -200,9 +204,7 @@ const ViewAppraisalByHr = () => {
               <h3 className="page-title">Appraisal Review</h3>
               <ul className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <Link to="/hrms/staffAppraisals">
-                    Back to Appraisal Page
-                  </Link>
+                  <Link to="/hrms/staffAppraisals">Back to Appraisal Page</Link>
                 </li>
                 <li className="breadcrumb-item active">Review</li>
               </ul>
@@ -330,7 +332,16 @@ const ViewAppraisalByHr = () => {
                                     SECOND SUPERVISOR ID:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {secondLevelSupervisorStaffId}
+                                    {secondLevelSupervisorId}
+                                  </div>
+                                </div>
+
+                                <div className="d-flex m-b-10 font_size">
+                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                    SECOND SUPERVISOR NAME:
+                                  </div>
+                                  <div className="col-lg-7 col-md-6 col-sm-12">
+                                    {secondSupervisorName}
                                   </div>
                                 </div>
 
@@ -339,7 +350,9 @@ const ViewAppraisalByHr = () => {
                                     LAST PROMOTION DATE:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {lastPromotionDate}
+                                    {lastPromotionDate === "0001-01-01"
+                                      ? "N/A"
+                                      : lastPromotionDate}
                                   </div>
                                 </div>
                               </div>
@@ -967,13 +980,13 @@ const ViewAppraisalByHr = () => {
       </Modal>
 
       <Modal show={openModal} centered backdrop="static" keyboard={false}>
-        <RejectionModal
+        <RejectionModalByHr
           toggleModal={toggleModal}
           appraisalReference={appraisalReference}
-          supervisorName={secondLevelSupervisorName}
           status={status}
           rejectionStage={rejectionStage}
-          rejectingStaffId={staffId}
+          rejectingStaffId={loggedInStaffId}
+          rejectedBy={`${firstName} ${lastName}`}
         />
       </Modal>
     </div>

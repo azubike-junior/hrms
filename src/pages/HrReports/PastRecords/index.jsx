@@ -17,7 +17,7 @@ import { classNames } from "../../../utils/classNames";
 import { getGrades } from "../../../services/PerformanceManagement/hrReports/getGrades";
 import { useForm } from "react-hook-form";
 import { getAppraisalsByDate } from "../../../services/PerformanceManagement/hrReports/getAppraisalByDate";
-import Loader from '../../../components/Loader/index';
+import Loader from "../../../components/Loader/index";
 
 const PastRecords = () => {
   const [selectedFiltered, setSelectedFiltered] = useState("");
@@ -256,6 +256,10 @@ const PastRecords = () => {
     dispatch(getAllAppraisals(setAllAppraisals));
   }, []);
 
+  // useEffect(() => {
+  //   dispatch(getGrades());
+  // }, []);
+
   return (
     <div className="page-wrapper">
       <Helmet>
@@ -336,7 +340,7 @@ const PastRecords = () => {
                     {departments?.map((department) => {
                       return (
                         <option key={department.id} value={department.id}>
-                          {department.departmentName}
+                          {department.description}
                         </option>
                       );
                     })}

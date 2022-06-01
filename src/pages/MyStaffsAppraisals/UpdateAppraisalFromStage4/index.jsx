@@ -130,6 +130,7 @@ const UpdateAppraisalFromStage4 = () => {
     supervisorName,
     supervisorComment,
     secondSupervisorName,
+    secondLevelSupervisorId,
     exceptionalAchievement,
     dateSubmitted,
     status,
@@ -354,9 +355,7 @@ const UpdateAppraisalFromStage4 = () => {
               <h3 className="page-title">Appraisal Review</h3>
               <ul className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <Link to="/hrms/staffAppraisals">
-                    Back to Appraisal Page
-                  </Link>
+                  <Link to="/hrms/staffAppraisals">Back to Appraisal Page</Link>
                 </li>
                 <li className="breadcrumb-item active">Review</li>
               </ul>
@@ -425,7 +424,7 @@ const UpdateAppraisalFromStage4 = () => {
 
                                 <div className="d-flex m-b-10 font_size">
                                   <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    STAF ID
+                                    STAFF ID
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
                                     {staffId}
@@ -484,7 +483,16 @@ const UpdateAppraisalFromStage4 = () => {
                                     SECOND SUPERVISOR ID:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {secondLevelSupervisorStaffId}
+                                    {secondLevelSupervisorId}
+                                  </div>
+                                </div>
+
+                                <div className="d-flex m-b-10 font_size">
+                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                    SECOND SUPERVISOR NAME:
+                                  </div>
+                                  <div className="col-lg-7 col-md-6 col-sm-12">
+                                    {secondSupervisorName}
                                   </div>
                                 </div>
 

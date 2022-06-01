@@ -38,7 +38,7 @@ const LoginPage = () => {
     setInputError("");
   };
 
-  console.log(">>>>>>>response from page", response, error);
+  // console.log(">>>>>>>response from page", response, error);
   return (
     <>
       <Helmet>
@@ -47,11 +47,11 @@ const LoginPage = () => {
       </Helmet>
       <div>
         <LoginHeader />
-        {response?.status === 200 &&
-          history.push("/hrms/Appraisals")}
+        {/* {response?.status === 200 &&
+          history.push("/hrms/Appraisals")} */}
         <div className="vertical-align-wrap">
           <div className="vertical-align-middle auth-main">
-            <div className="auth-box">
+            <div className="auth-box mt-4">
               <div className="top">
                 <div className="image">
                   <img

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import regeneratorRuntime from "regenerator-runtime";
+import Swal from "sweetalert2";
 
 const initialState = {
   error: "",
@@ -20,6 +21,16 @@ export const login = createAsyncThunk(
         `http://10.11.200.97/PerformanceManagement/Login?userName=${email}&password=${password}`,
         data
       );
+
+      if (response.data.responseCode === "94") {
+        Swal.fire(
+          `User details not found.Please contact HR`,
+          "Unsuccessful!",
+          "error"
+        );
+        return response;
+      }
+
       if (response.status === 206) {
         console.log(">>>>>>>response from 206", response);
         localStorage.setItem("cachedData", JSON.stringify(response.data));
@@ -31,6 +42,7 @@ export const login = createAsyncThunk(
         history.push("/hrms/Appraisals");
         return response;
       }
+
       if (response.status === 200) {
         console.log(">>>>>>>response from 200", response);
         localStorage.setItem("cachedData", JSON.stringify(response.data));
@@ -58,6 +70,7 @@ export const loginSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(login.rejected, (state, action) => {
+      console.log("response", action.payload);
       state.error = action.payload;
       state.error2 = action.error.name;
       state.loading = false;

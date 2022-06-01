@@ -39,7 +39,7 @@ const AppraiseeUpdatedReview = () => {
 
   const staffData = JSON.parse(localStorage.getItem("cachedData"));
 
-  const { departmentName, gradeName, secondLevelSupervisorStaffId, unitName } =
+  const { departmentName, gradeName, secondLevelSupervisorId, secondLevelSupervisorName, unitName } =
     staffData;
 
   const { data: details } = useSelector(
@@ -304,7 +304,15 @@ const AppraiseeUpdatedReview = () => {
                                     SECOND SUPERVISOR ID:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {secondLevelSupervisorStaffId}
+                                    {secondLevelSupervisorId}
+                                  </div>
+                                </div>
+                                <div className="d-flex m-b-10 font_size">
+                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                    SECOND SUPERVISOR NAME:
+                                  </div>
+                                  <div className="col-lg-7 col-md-6 col-sm-12">
+                                    {secondLevelSupervisorName}
                                   </div>
                                 </div>
 
@@ -313,7 +321,9 @@ const AppraiseeUpdatedReview = () => {
                                     LAST PROMOTION DATE:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {lastPromotionDate}
+                                    {lastPromotionDate === "0001-01-01"
+                                      ? "N/A"
+                                      : lastPromotionDate}
                                   </div>
                                 </div>
                               </div>
@@ -811,7 +821,7 @@ const AppraiseeUpdatedReview = () => {
                     className="form-group col-lg-12 col-md-12 col-sm-12"
                     style={{ marginTop: "50px" }}
                   >
-                    <Link to={"/staffAppraisal"}>
+                    <Link to={"/hrms/staffAppraisal"}>
                       <div className="d-flex align-items-center justify-content-center">
                         <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
                           <button
@@ -865,7 +875,7 @@ const AppraiseeUpdatedReview = () => {
               <div className="modal-btn delete-action">
                 <div className="row">
                   <div className="col-6">
-                    <a
+                    <button
                       className="btn btn-block btn-primary"
                       onClick={() => {
                         submitComment();
@@ -873,15 +883,15 @@ const AppraiseeUpdatedReview = () => {
                       }}
                     >
                       Yes
-                    </a>
+                    </button>
                   </div>
                   <div className="col-6">
-                    <a
+                    <button
                       onClick={() => toggleModal()}
                       className="btn btn-block btn-outline-danger"
                     >
                       Cancel
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

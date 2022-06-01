@@ -13,16 +13,11 @@ const initialState = {
   isSuccessful: false,
 };
 
-
-
-export const rejectAppraisal = createAsyncThunk(
+export const rejectAppraisalByHr = createAsyncThunk(
   "rejectAppraisal",
   async (data, { rejectWithValue }) => {
     const { dispatch, history, toggleModal, ...rest } = data;
     // console.log(">>>dta", appraisalRef);
-
-    const staffData = JSON.parse(localStorage.getItem("cachedData"));
-    const { staffId } = staffData;
 
     try {
       const response = await axios.post(
@@ -32,9 +27,9 @@ export const rejectAppraisal = createAsyncThunk(
 
       if (response.data.responseCode === "00") {
         Swal.fire(`Appraisal has been Rejected`, "success").then(() => {
-          dispatch(getAppraisalsBySupervisorId(staffId));
+        //   dispatch(getAppraisalsBySupervisorId("083"));
           toggleModal();
-          history.push("/hrms/staffAppraisals");
+          history.push("/hrms/HrReports/currentReports");
         });
         return response.data;
       }
@@ -46,25 +41,25 @@ export const rejectAppraisal = createAsyncThunk(
   }
 );
 
-const rejectAppraisalSlice = createSlice({
+const rejectAppraisalByHrSlice = createSlice({
   name: "rejectAppraisal",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(rejectAppraisal.rejected, (state, action) => {
+    builder.addCase(rejectAppraisalByHr.rejected, (state, action) => {
       state.error = action.payload;
       state.error2 = action.error.name;
       state.loading = false;
       state.isSuccessful = false;
     });
-    builder.addCase(rejectAppraisal.fulfilled, (state, action) => {
+    builder.addCase(rejectAppraisalByHr.fulfilled, (state, action) => {
       state.loading = true;
       state.data = action.payload;
       state.loading = false;
       state.isSuccessful = true;
       state.error = "";
     });
-    builder.addCase(rejectAppraisal.pending, (state, action) => {
+    builder.addCase(rejectAppraisalByHr.pending, (state, action) => {
       state.loading = true;
       state.error = action.payload;
     });
@@ -72,4 +67,4 @@ const rejectAppraisalSlice = createSlice({
 });
 
 // export const { useRegisterMutation } = AuthHandler;
-export default rejectAppraisalSlice.reducer;
+export default rejectAppraisalByHrSlice.reducer;

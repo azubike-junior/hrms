@@ -54,10 +54,6 @@ const StaffAppraisal = (props) => {
 
   const { data: allStaffs } = useSelector((state) => state.getAllStaffsReducer);
 
-  const { response } = useSelector(
-    (state) => state.authenticationManager.loginReducer
-  );
-
   // console.log(">>>>>allStaffs", allStaffs);
 
   const allValues = Object.values(state?.data?.appraiseeRates)?.filter(
@@ -80,6 +76,11 @@ const StaffAppraisal = (props) => {
     });
   };
 
+  // console.log(
+  //   ">>>>>>> behaviourTraining",
+  //   state.data.selectedBehavioralTrainings
+  // );
+
   const handleTechnicalChange = (e) => {
     if (state?.data?.selectedTechnicalTrainings?.includes(e.target.value)) {
       return;
@@ -94,7 +95,6 @@ const StaffAppraisal = (props) => {
         e.target.value,
       ],
     });
-    // setSelectedTechnicalTraining((prev) => [...prev, e.target.value]);
   };
 
   const deleteBehaviorTraining = (training) => {
@@ -133,8 +133,6 @@ const StaffAppraisal = (props) => {
   const { data: jobKpis } = useSelector(
     (state) => state.performanceManagement.getKpiByJobFunctionReducer
   );
-
-  console.log(">>>>>jobKpi", jobKpis);
 
   const { data: behaviouralTrainings } = useSelector(
     (state) => state.performanceManagement.getBehaviouralTrainingReducer
@@ -214,7 +212,7 @@ const StaffAppraisal = (props) => {
 
   const { selectedBehavioralTrainings, selectedTechnicalTrainings } =
     state?.data;
-
+    
   // console.log(">>>>>>>selected", selectedBehavioralTrainings)
 
   const addKPIsToState = () => {
@@ -281,16 +279,16 @@ const StaffAppraisal = (props) => {
       appraiseeAnalyticalThinkingScore: analyticScore,
       appraiseeBehaviouralTrainings: `${
         selectedBehavioralTrainings[0] ? selectedBehavioralTrainings[0] : ""
-      }, ${
+      } ${
         selectedBehavioralTrainings[1] ? selectedBehavioralTrainings[1] : ""
-      }, ${
+      } ${
         selectedBehavioralTrainings[2] ? selectedBehavioralTrainings[2] : ""
       }`,
       appraiseeFunctionalTrainings: `${
         selectedTechnicalTrainings[0] ? selectedTechnicalTrainings[0] : ""
-      },  ${
+      }  ${
         selectedTechnicalTrainings[1] ? selectedTechnicalTrainings[1] : ""
-      }, ${selectedTechnicalTrainings[2] ? selectedTechnicalTrainings[2] : ""}`,
+      } ${selectedTechnicalTrainings[2] ? selectedTechnicalTrainings[2] : ""}`,
       appraiseeBehaviourArray: selectedBehavioralTrainings,
       appraiseeFunctionalArray: selectedTechnicalTrainings,
       exceptionalAchievement: exceptionalAch
@@ -455,8 +453,8 @@ const StaffAppraisal = (props) => {
                         <div className="col-lg-3">KPI</div>
                         <div className="col-lg-2 text-center">TARGET</div>
                         <div className="col-lg-2 text-center">WEIGHT</div>
-                        <div className="col-lg-2 text-center">APP. RATE</div>
-                        <div className="col-lg-1 text-center">APP. RESULT</div>
+                        <div className="col-lg-2 text-center">RATING</div>
+                        <div className="col-lg-1 text-center">RESULT</div>
                       </div>
                       {/* Table Header Ends Here */}
 
@@ -826,7 +824,6 @@ const StaffAppraisal = (props) => {
                                   Very Good{" "}
                                   <span className="float-right">4</span>
                                 </p>
-                                7
                                 <p>
                                   <i className="fa fa-dot-circle-o text-info mr-2" />
                                   Average<span className="float-right">3</span>
@@ -1005,7 +1002,7 @@ const StaffAppraisal = (props) => {
                     </div>
                   </div>
 
-                  <div className="col-lg-4" style={{ marginTop: "50px" }}>
+                  {/* <div className="col-lg-4" style={{ marginTop: "50px" }}>
                     <div
                       className="font-weight-bolder"
                       style={{
@@ -1037,7 +1034,7 @@ const StaffAppraisal = (props) => {
                         <option value="N/A">Not Available</option>
                       </select>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -1051,8 +1048,8 @@ const StaffAppraisal = (props) => {
                   <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
                     <button
                       disabled={
-                        // errorValues.includes(true) |
-                        KPIs.length !== allValues.length
+                        errorValues.includes(true) |
+                        (jobKpis.length !== allValues.length)
                       }
                       className="btn btn-block btn-suntrust font-weight-700"
                       onClick={() => {
@@ -1076,8 +1073,7 @@ const StaffAppraisal = (props) => {
                     <button
                       disabled={
                         errorValues.includes(true) |
-                        // (KPIs.length !== allValues.length) |
-                        !secondLevelSupervisor
+                        (jobKpis.length !== allValues.length)
                       }
                       className="btn btn-block btn-suntrust font-weight-700"
                       onClick={() => {

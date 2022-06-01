@@ -135,7 +135,7 @@ const Appraisals = () => {
 
       {/* Page Content */}
 
-      <div className="content container-fluid">
+      <div className="content container-fluid mt-4">
         {/* Page Header */}
         <div className="page-header">
           <div className="row align-items-center">
@@ -148,21 +148,21 @@ const Appraisals = () => {
 
         {/* Search Filter */}
         <div className="row filter-row">
-          <div className="col-lg-10 col-sm-10 col-md-10">
+          {/* <div className="col-lg-10 col-sm-10 col-md-10">
             <div className="form-group form-focus">
               <input type="text" className="form-control floating" />
               <label className="focus-label">
                 Search for a Staff (e.g. ST-0019)
               </label>
             </div>
-          </div>
+          </div> */}
 
-          <div className="col-sm-2 col-md-2">
+          {/* <div className="col-sm-2 col-md-2">
             <a href="#" className="btn btn-block btn-suntrust font-weight-700">
               {" "}
               Search{" "}
             </a>
-          </div>
+          </div> */}
         </div>
         {/* Search Filter */}
 

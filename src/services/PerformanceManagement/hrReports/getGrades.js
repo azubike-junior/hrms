@@ -15,7 +15,7 @@ const initialState = {
   isSuccessful: false,
 };
 
-export const getGrades = createAsyncThunk("getGrades", async ({}, {rejectWithValue}) => {
+export const getGrades = createAsyncThunk("getGrades", async () => {
   try {
     const response = await axios.get(`${performanceManagementUrl}/getGrades`);
 
@@ -26,7 +26,7 @@ export const getGrades = createAsyncThunk("getGrades", async ({}, {rejectWithVal
     }
     return response.data;
   } catch (e) {
-    return rejectWithValue(e.response.data);
+    return e.response.data
   }
 });
 

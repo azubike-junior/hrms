@@ -18,19 +18,18 @@ const initialState = {
 
 export const getRecommendations = createAsyncThunk(
   "getRecommendations",
-  async ({}, {rejectWithValue}) => {
+  async () => {
     try {
       const response = await axios.get(
         `${performanceManagementAppraisalUrl}/GetRecommendation`
       );
-
       // console.log(">>>>response", response)
       if (response.status === 200) {
         return response.data;
       }
       return response.data;
     } catch (e) {
-      return rejectWithValue(e.response.data);
+      return e.response.data
     }
   }
 );

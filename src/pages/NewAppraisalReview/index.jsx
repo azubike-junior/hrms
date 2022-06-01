@@ -10,6 +10,7 @@ import { getIndividualKpis } from "../../services/PerformanceManagement/Configur
 import { getCategoryTypes } from "../../services/PerformanceManagement/Configurations/categoryType/getCategoryTypes";
 import Modal from "react-bootstrap/Modal";
 import Loader from "./../../components/Loader/index";
+import Swal from "sweetalert2";
 import { getKpiByJobFunction } from "../../services/PerformanceManagement/Configurations/individualKpi/getKpibyJobFunction";
 
 const StaffAppraisalReview = () => {
@@ -42,7 +43,7 @@ const StaffAppraisalReview = () => {
     (state) => state.performanceManagement.getCategoryTypesReducer
   );
 
-  const { loading: submitLoading } = useSelector(
+  const { loading: submitLoading, error: submitAppraisalError } = useSelector(
     (state) => state.performanceManagement.submitStaffAppraisalReducer
   );
 
@@ -87,6 +88,8 @@ const StaffAppraisalReview = () => {
     strengthResult,
   } = allData.data;
 
+  // console.log(">>>>>> brhaviouralTrain from review", appraiseeBehaviouralTrainings)
+
   const emptyState = () => {
     actions.updateName(emptyStateData);
   };
@@ -106,39 +109,40 @@ const StaffAppraisalReview = () => {
 
     const {
       staffId,
-      supervisorStaffId,
-      superVisorFistName,
-      supervisorLastName,
+      supervisorId,
+      supervisorName,
       firstName,
       lastName,
       secondLevelSupervisorName,
-      secondLevelSupervisorStaffId,
+      secondLevelSupervisorId,
       departmentCode,
       dateOfBirth,
       jobDescription,
       grade,
       branchName,
+      department,
       departmentName,
       gradeName,
+      lastPromotionDate
     } = staffData;
 
     // console.log(">>>>staffID", staffId, superVisorFistName)
 
     const appraisals = {
       staffId,
-      secondLevelSupervisorId: allData.data.secondLevelSupervisorId,
-      supervisorId: supervisorStaffId,
-      supervisorName: `${superVisorFistName} ${supervisorLastName}`,
+      secondLevelSupervisorId,
+      supervisorId,
+      supervisorName,
       appraiseeName: `${firstName} ${lastName}`,
       exceptionalAchievement: allData.data.exceptionalAchievement,
-      secondSupervisorName: allData.data.secondSupervisorName,
+      secondSupervisorName: secondLevelSupervisorName,
       appraiseeComment: "",
-      departmentCode,
+      departmentCode: department,
       totalAppraiseeResult: kpiResult,
       gradeName,
       jobDescription,
       branchName,
-      departmentName,
+      department: departmentName,
       dateOfBirth: dateOfBirth ? dateOfBirth : "0001-01-01",
       appraiseeTimeManagementScore,
       appraiseePunctualityScore,
@@ -147,6 +151,7 @@ const StaffAppraisalReview = () => {
       appraiseeAnalyticalThinkingScore,
       appraiseeBehaviouralTrainings,
       appraiseeFunctionalTrainings,
+      lastPromotionDate: lastPromotionDate ? lastPromotionDate : "0001-01-01",
       kpis: appraise,
     };
 
@@ -171,6 +176,15 @@ const StaffAppraisalReview = () => {
   useEffect(() => {
     setKpiResult(result);
   });
+
+  // useEffect(() => {
+  //   {
+  //     submitAppraisalError?.responseCode === "96" &&
+  //       Swal.fire(`Sorry, an Error ocurred`, "Error!", "error").then(() => {
+  //         // reset();
+  //       });
+  //   }
+  // }, []);
 
   const processPerspective = results[0]?.map((kpi, index) => {
     if (index === 0) {
@@ -240,7 +254,8 @@ const StaffAppraisalReview = () => {
     };
   });
 
-  console.log(">>>>>>>>.state.data from review", allData);
+  // console.log(">>>>>>>>.state.data from review", allData);
+  // console.log(">>>>>submitError", submitAppraisalError?.responseCode);
 
   return (
     <div>
@@ -251,8 +266,10 @@ const StaffAppraisalReview = () => {
           <meta name="description" content="Login page" />
         </Helmet>
         {/* Page Content */}
+
         <div className="content container-fluid">
           {/* Page Header */}
+
           <div className="page-header">
             <div className="card">
               <div className="card-body">
@@ -285,8 +302,8 @@ const StaffAppraisalReview = () => {
                       <div className="col-lg-3">KPI</div>
                       <div className="col-lg-1 text-center">TARGET</div>
                       <div className="col-lg-2 text-center">WEIGHT</div>
-                      <div className="col-lg-2 text-center">APP. RATE</div>
-                      <div className="col-lg-2 text-center">APP. RESULT</div>
+                      <div className="col-lg-2 text-center">RATING</div>
+                      <div className="col-lg-2 text-center">RESULT</div>
                     </div>
                     {/* Table Header Ends Here */}
 
@@ -553,21 +570,6 @@ const StaffAppraisalReview = () => {
                         ACHIEVEMENT(S)
                       </div>
                       {allData?.data?.exceptionalAchievement}
-                    </div>
-
-                    <div className="form-group">
-                      <div
-                        className="mb-3 font-weight-bold"
-                        style={{
-                          marginBottom: "20px",
-                          textDecoration: "underline",
-                        }}
-                      >
-                        SECOND LEVEL SUPERVISOR
-                      </div>
-                      <div className="mb-3">
-                        {allData?.data?.secondSupervisorName}
-                      </div>
                     </div>
                   </div>
                 </div>

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { performanceManagementAppraisalUrl } from "../../../utils/helper";
 
 const initialState = {
-  error: "",
+  error: {},
   loading: false,
   error2: "",
   data: {},
@@ -73,6 +73,13 @@ const submitStaffAppraisalSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(submitStaffAppraisal.rejected, (state, action) => {
+      // console.log(">>>>>>>>>responseError", action.payload);
+      if (action.payload.responseCode === "96") {
+        Swal.fire(`Sorry, An error ocurred`, "Error!", "error").then(() => {
+          // reset();
+        });
+      }
+
       state.error = action.payload;
       state.error2 = action.error.name;
       state.loading = false;

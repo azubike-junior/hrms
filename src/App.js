@@ -71,7 +71,7 @@ function App() {
   return (
     <Router history={browserHistory}>
       <Switch>
-        <Route exact path="/hrms" component={Loginpage} />
+        <Route exact path="/hrms/" component={Loginpage} />
         <div>
           <Header />
           <div>
@@ -111,7 +111,7 @@ function App() {
 
             <PrivateRoute
               exact
-              path="/hrms/HrReports/pastRecords`"
+              path="/hrms/HrReports/pastRecords"
               component={PastRecords}
             />
             <PrivateRoute

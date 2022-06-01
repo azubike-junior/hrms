@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { rejectAppraisal } from "../../services/PerformanceManagement/StaffAppraisal/rejectAppraisal";
+// import { rejectAppraisal } from "../../services/PerformanceManagement/StaffAppraisal/rejectAppraisal";
 import { useHistory } from "react-router-dom";
-import Loader from './../Loader/index';
+import Loader from "../../../components/Loader/index";
+import { rejectAppraisalByHr } from './../../../services/PerformanceManagement/StaffAppraisal/rejectAppraisalByHr';
 
-export default function RejectionModal({
+export default function RejectionModalByHr({
   toggleModal,
+  rejectedBy,
   appraisalReference,
   status,
   rejectionStage,
   rejectingStaffId,
-  rejectedBy
 }) {
   const { loading: rejectionLoading } = useSelector(
     (state) => state.performanceManagement.rejectAppraisalReducer
@@ -37,8 +38,8 @@ export default function RejectionModal({
       rejectingStaffId,
     };
 
-    // console.log(">>>>>.dtaa", data);
-    dispatch(rejectAppraisal(data));
+    console.log(">>>>>.dtaa", data);
+    dispatch(rejectAppraisalByHr(data));
   };
 
   return (

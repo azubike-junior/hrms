@@ -74,6 +74,8 @@ Version      : 3.6
 
 ========================================*/
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
@@ -149,13 +151,13 @@ html {
   height: 100%;
 }
 body {
-  font-family: "CircularStd", sans-serif;
-  font-size: 0.9375rem;
+  font-family: 'Poppins', sans-serif;
+  /* font-size: 1.rem; */
   color: #1f1f1f;
   background-color: #f7f7f7;
   min-height: 100%;
   overflow-x: hidden;
-  word-spacing: -2px;
+  /* word-spacing: -1px; */
 }
 h1,
 h2,

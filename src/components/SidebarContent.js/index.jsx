@@ -43,7 +43,7 @@ export default function SidebarContent() {
       {role === "initiator" && (
         <div>
           {initiatorsItems.map((item, index) => (
-            <SidebarItem key={index} item={item} />
+            <SidebarItem key={index} item={item}  />
           ))}
         </div>
       )}

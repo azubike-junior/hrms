@@ -66,6 +66,7 @@ export default function BehavioralMetric() {
     };
     dispatch(addBehavioralMetric(newData));
   };
+  
   return (
     <div className="tab-pane show active" id="behaviour_training">
       <form onSubmit={handleSubmit(behaviorHandler)}>

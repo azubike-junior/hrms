@@ -18,7 +18,7 @@ const initialState = {
 
 export const getBehavioralMetrics = createAsyncThunk(
   "getBehavioralMetrics",
-  async ({}, {rejectWithValue}) => {
+  async () => {
     try {
       const response = await axios.get(
         `${performanceManagementAppraisalUrl}/GetBehaviouralTrainings`
@@ -30,7 +30,7 @@ export const getBehavioralMetrics = createAsyncThunk(
       }
       return response.data;
     } catch (e) {
-      return rejectWithValue(e.response.data);
+      return e.response.data
     }
   }
 );

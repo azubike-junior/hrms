@@ -26,7 +26,8 @@ import { getBehaviouralTraining } from "../../services/PerformanceManagement/Sta
 import { getIndividualKpis } from "../../services/PerformanceManagement/Configurations/individualKpi/getIndividualKpi";
 import RejectionModal from "../../components/RejectionModal";
 import Modal from "react-bootstrap/Modal";
-import { NewSupervisorKpiInputComponent } from '../../components/KpiComponent/index';
+import { NewSupervisorKpiInputComponent } from "../../components/KpiComponent/index";
+import { getRecommendations } from "../../services/PerformanceManagement/Configurations/recommendation/getRecommendation";
 
 const StaffAppraisalDetail = () => {
   const dispatch = useDispatch();
@@ -58,8 +59,7 @@ const StaffAppraisalDetail = () => {
 
   const staffData = JSON.parse(localStorage.getItem("cachedData"));
 
-  const { departmentName, gradeName, unitName } =
-    staffData;
+  const { departmentName, gradeName, unitName } = staffData;
 
   const errorValues = Object.values(errors);
   const allValues = Object.values(values).filter((el) => el !== "");
@@ -111,6 +111,10 @@ const StaffAppraisalDetail = () => {
 
   const { data: strengthIndicators } = useSelector(
     (state) => state.performanceManagement.getStrengthsReducer
+  );
+
+  const { data: recommendations } = useSelector(
+    (state) => state.performanceManagement.getRecommendationsReducer
   );
 
   const { data: details } = useSelector(
@@ -189,17 +193,17 @@ const StaffAppraisalDetail = () => {
     state.data = {
       supervisorBehaviouralTrainings: `${
         selectedBehavioralTrainings[0] ? selectedBehavioralTrainings[0] : ""
-      }, ${
+      } ${
         selectedBehavioralTrainings[1] ? selectedBehavioralTrainings[1] : ""
-      }, ${
+      } ${
         selectedBehavioralTrainings[2] ? selectedBehavioralTrainings[2] : ""
       }`,
 
       supervisorFunctionalTrainings: `${
         selectedTechnicalTrainings[0] ? selectedTechnicalTrainings[0] : ""
-      },  ${
+      }  ${
         selectedTechnicalTrainings[1] ? selectedTechnicalTrainings[1] : ""
-      }, ${selectedTechnicalTrainings[2] ? selectedTechnicalTrainings[2] : ""}`,
+      } ${selectedTechnicalTrainings[2] ? selectedTechnicalTrainings[2] : ""}`,
       behaviouralTrainingsArray: selectedBehavioralTrainings,
       functionalTrainingsArray: selectedTechnicalTrainings,
       supervisorComment,
@@ -220,7 +224,7 @@ const StaffAppraisalDetail = () => {
     actions.updateName(state.data);
   };
 
-  console.log(">>>>>>details", details)
+  console.log(">>>>>>details", details);
 
   //
   const allProcess = details?.kpis
@@ -313,6 +317,10 @@ const StaffAppraisalDetail = () => {
     dispatch(getIndividualKpis());
   }, []);
 
+  useEffect(() => {
+    dispatch(getRecommendations());
+  }, []);
+
   return (
     <div className="page-wrapper">
       <Helmet>
@@ -399,7 +407,7 @@ const StaffAppraisalDetail = () => {
 
                                 <div className="d-flex m-b-10 font_size">
                                   <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    STAF ID
+                                    STAFF ID
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
                                     {staffId}
@@ -419,7 +427,9 @@ const StaffAppraisalDetail = () => {
                                     LAST PROMOTION DATE:
                                   </div>
                                   <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {lastPromotionDate}
+                                    {lastPromotionDate === "0001-01-01"
+                                      ? "N/A"
+                                      : lastPromotionDate}
                                   </div>
                                 </div>
                               </div>
@@ -979,7 +989,7 @@ const StaffAppraisalDetail = () => {
                                       }
                                     )}
                                   </div>
-                                  <label className="mt-3">
+                                  <label className="mt-3 pr-1">
                                     Suggested Behavioural Training By Appraisee:
                                   </label>
                                   {appraiseeBehaviouralTrainings}
@@ -1036,7 +1046,7 @@ const StaffAppraisalDetail = () => {
                                       }
                                     )}
                                   </div>
-                                  <label className="mt-3">
+                                  <label className="mt-3 pr-1">
                                     Suggested Functional Training By Appraisee:
                                   </label>
                                   {appraiseeFunctionalTrainings}
@@ -1112,7 +1122,7 @@ const StaffAppraisalDetail = () => {
                             onChange={(e) => setRecommendation(e.target.value)}
                           >
                             <option value="">-Select-</option>
-                            <option value="Maintain Status">
+                            {/* <option value="Maintain Status">
                               Maintain Status
                             </option>
                             <option value="Promote">Promote</option>
@@ -1120,7 +1130,14 @@ const StaffAppraisalDetail = () => {
                               Watch Performance
                             </option>
                             <option value="Re-assign">Reassign </option>
-                            <option value="Exit">Exit </option>
+                            <option value="Exit">Exit </option> */}
+                            {recommendations.map((item) => {
+                              return (
+                                <option value={item?.description}>
+                                  {item.description}
+                                </option>
+                              );
+                            })}
                           </select>
                         </div>
                       </div>
@@ -1148,7 +1165,7 @@ const StaffAppraisalDetail = () => {
                         REJECT
                       </button>
                     </div>
-                  <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
+                    <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
                       <button
                         className="btn btn-block btn-suntrust font-weight-700"
                         disabled={
@@ -1159,7 +1176,7 @@ const StaffAppraisalDetail = () => {
                         onClick={() => {
                           addKPIsToState();
                           history.push(
-                            `/SupervisorAppraisalReview/${appraisalReference}`
+                            `/hrms/SupervisorAppraisalReview/${appraisalReference}`
                           );
                         }}
                       >

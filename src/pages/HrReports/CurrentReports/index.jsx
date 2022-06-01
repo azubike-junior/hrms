@@ -137,7 +137,7 @@ const CurrentReports = () => {
       render: (text, record) => (
         <Link
           onClick={() => console.log("text", text)}
-          to={`/viewAppraisalByHr/${text.appraisalReference}`}
+          to={`/hrms/viewAppraisalByHr/${text.appraisalReference}`}
           className="btn btn-sm btn-outline-primary m-r-10"
         >
           <i className="fa fa-eye m-r-5" />
@@ -230,7 +230,7 @@ const CurrentReports = () => {
                     {departments?.map((department) => {
                       return (
                         <option key={department.id} value={department.id}>
-                          {department.departmentName}
+                          {department.description}
                         </option>
                       );
                     })}

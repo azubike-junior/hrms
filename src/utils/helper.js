@@ -137,6 +137,7 @@ export const emptyStateData = {
   appraisalResults: {},
   appraiseeResults: {},
   appraiseeRates: {},
+  strengthResult:"",
   appraiseeTimeManagementScore: "",
   appraiseePunctualityScore: "",
   appraiseeCommunicationScore: "",

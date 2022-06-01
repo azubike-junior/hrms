@@ -29,9 +29,9 @@ export const updateCommentSection = createAsyncThunk(
             name === "comment" &&
               history.push("/hrms/Appraisals");
             name === "Recommendation" &&
-              history.push("/hrms/allStaffAppraisals");
+              history.push("/hrms/staffAppraisals");
             name === "Group Head Comment" &&
-              history.push("/hrms/allStaffAppraisals");
+              history.push("/hrms/staffAppraisals");
             // clearKPIs();
           }
         );

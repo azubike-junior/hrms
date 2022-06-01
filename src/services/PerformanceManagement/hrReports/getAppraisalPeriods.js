@@ -17,7 +17,7 @@ const initialState = {
 
 export const getAllAppraisalPeriods = createAsyncThunk(
   "getAllAppraisalPeriods",
-  async ({}, {rejectWithValue}) => {
+  async () => {
     try {
       const response = await axios.get(
         `${performanceManagementAppraisalUrl}/getAppraisalPeriods`
@@ -29,7 +29,7 @@ export const getAllAppraisalPeriods = createAsyncThunk(
 
       return response.data;
     } catch (e) {
-      return rejectWithValue(e.response.data);
+      return e.response.data
     }
   }
 );

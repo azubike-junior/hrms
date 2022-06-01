@@ -1,10 +1,5 @@
 [
   {
-    "title": "Setup Profile",
-    "icon": "la la-user-cog",
-    "path": "/hrms/setupProfile"
-  },
-  {
     "title": "New Appraisal",
     "icon": "la la-comment",
     "path": "/hrms/staffAppraisal"

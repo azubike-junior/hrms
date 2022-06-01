@@ -15,13 +15,13 @@ export default function SidebarItem({ item }) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-title" onClick={() => setOpen(!open)}>
-          <span>
+          <span onClick={() => emptyState()}>
             {item.icon && <i className={`${item.icon} font-20 pl-2 mr-3`}></i>}
             {`${item.title}`}
           </span>
           <i className="fa fa-angle-down toggle-btn font-18 pt-2"></i>
         </div>
-        <div className="sidebar-content">
+        <div className="sidebar-content" onClick={() => emptyState()}>
           {item.childrens.map((child, index) => (
             <SidebarItem key={index} item={child} />
           ))}

@@ -17,7 +17,7 @@ const initialState = {
 
 export const getAllAppraisals = createAsyncThunk(
   "getAllAppraisals",
-  async (setAllAppraisals, {rejectWithValue}) => {
+  async (setAllAppraisals, { rejectWithValue }) => {
     try {
       const response = await axios.get(
         `${performanceManagementAppraisalUrl}/getAllAppraisals`
