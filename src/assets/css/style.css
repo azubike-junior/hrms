@@ -74,7 +74,7 @@ Version      : 3.6
 
 ========================================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 @font-face {
   font-family: "Material Icons";
@@ -151,7 +151,7 @@ html {
   height: 100%;
 }
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   /* font-size: 1.rem; */
   color: #1f1f1f;
   background-color: #f7f7f7;
@@ -1628,7 +1628,7 @@ table.dataTable thead > tr > td.sorting {
   position: fixed;
   top: 80px;
   transition: all 0.2s ease-in-out 0s;
-  width: 250px;
+  width: 230px;
   z-index: 1001;
 }
 .sidebar.opened {
@@ -8966,15 +8966,17 @@ ul.comment-list li ul.children {
 .rate-input {
   border: 1px #ccc solid;
   border-radius: 2px;
-  height: 30px;
+  height: 40px;
   cursor: pointer;
-  width: 40px;
+  width: 60px;
+  text-align: center;
 }
 
 .error-input {
   border: 1px red solid;
   border-radius: 2px;
-  height: 30px;
+  height: 40px;
+  width: 60px;
   cursor: pointer;
   text-align: center;
 }
@@ -8982,9 +8984,16 @@ ul.comment-list li ul.children {
 .error-input2 {
   border: 1px red solid;
   border-radius: 2px;
-  width:60px !important;
+  width: 60px !important;
   height: 40px !important;
   cursor: pointer;
+  text-align: center;
+}
+
+.review-input {
+  width: 60px !important;
+  height: 40px !important;
+  padding: 4px;
   text-align: center;
 }
 

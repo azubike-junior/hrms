@@ -126,13 +126,13 @@ export default function BehavioralMetric() {
           <div className="modal-content">
             <div className="modal-body">
               <div className="form-header">
-                <h3>Delete Request</h3>
+                <h3>Delete Behavioral Training</h3>
                 <p>Are you sure want to delete?</p>
               </div>
               <div className="modal-btn delete-action">
                 <div className="row">
                   <div className="col-6">
-                    <a
+                    <button
                       className="btn btn-block btn-outline-danger"
                       onClick={() => {
                         dispatch(
@@ -142,15 +142,15 @@ export default function BehavioralMetric() {
                       }}
                     >
                       Delete
-                    </a>
+                    </button>
                   </div>
                   <div className="col-6">
-                    <a
+                    <button
                       onClick={() => toggleModal()}
                       className="btn btn-block btn-primary"
                     >
                       Cancel
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

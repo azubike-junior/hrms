@@ -116,7 +116,7 @@ const DepartmentGoal = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>Configurations - Department Goal</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
 

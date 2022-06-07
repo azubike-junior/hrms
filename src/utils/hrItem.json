@@ -38,7 +38,7 @@
         "path": "/hrms/HrReports/currentReports"
       },
       {
-        "title": "Past Histories",
+        "title": "History",
         "path": "/hrms/HrReports/pastRecords"
       }
     ]

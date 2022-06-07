@@ -39,8 +39,7 @@ const SupervisorAppraisalReview2 = () => {
 
   const staffData = JSON.parse(localStorage.getItem("cachedData"));
 
-  const { departmentName, gradeName, secondLevelSupervisorStaffId, unitName } =
-    staffData;
+  const { departmentName, secondLevelSupervisorStaffId, unitName } = staffData;
 
   const clearKPIs = () => {
     allData.data = {
@@ -159,6 +158,7 @@ const SupervisorAppraisalReview2 = () => {
     appraiseeFunctionalTrainings,
     secondSupervisorName,
     secondLevelSupervisorId,
+    gradeName,
     kpis,
   } = details;
 
@@ -241,11 +241,11 @@ const SupervisorAppraisalReview2 = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>Appraisal Review</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
       {/* Page Content */}
-      <div className="content container-fluid">
+      <div className="m-t-50 container-fluid">
         {/* Page Header */}
         <div className="page-header">
           <div className="row">
@@ -265,517 +265,506 @@ const SupervisorAppraisalReview2 = () => {
         {/* /Page Header */}
 
         <div className="card m-b-50">
-          <div className="card-body">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="profile-view">
-                  {/* Table Header  Starts Here */}
+          {/* <div className="card-body"> */}
+          <div className="row">
+            <div className="col-md-12">
+              <div className="profile-view">
+                {/* Table Header  Starts Here */}
 
-                  <div className="card m-b-50">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-lg-12">
-                          <div className="profile-view">
-                            <label
-                              className="font-18 font-weight-bold m-b-20"
-                              style={{ textDecoration: "underline" }}
-                            >
-                              STAFF DETAILS
-                            </label>
-
-                            {/* Staff Details Starts Here */}
-                            <div className="d-flex mb-5">
-                              <div className="col-lg-6">
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    SUPERVISOR ID:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {supervisorId}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    SUPERVISOR NAME:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {supervisorName}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    APPRAISEE NAME:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {appraiseeName}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    DATE SUBMITTED:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {dateSubmitted}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    STAF ID
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {staffId}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    DEPARTMENT:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {departmentName}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    LAST PROMOTION DATE:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {lastPromotionDate === "0001-01-01"
-                                      ? "N/A"
-                                      : lastPromotionDate}
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div className="col-lg-6">
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    GRADE:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {gradeName}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    UNIT:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {unitName}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    APPRAISAL PERIOD STATUS:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {appraisalPeriodStatus}
-                                  </div>
-                                </div>
-
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    SECOND SUPERVISOR ID:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {secondLevelSupervisorId}
-                                  </div>
-                                </div>
-                                <div className="d-flex m-b-10 font_size">
-                                  <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
-                                    SECOND SUPERVISOR NAME:
-                                  </div>
-                                  <div className="col-lg-7 col-md-6 col-sm-12">
-                                    {secondSupervisorName}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/* Staff Details Ends Here */}
-
-                            <div
-                              className="row d-flex border-bottom pt-2 pb-2 font-weight-bolder"
-                              style={{
-                                backgroundColor: "#cccccc",
-                                marginBottom: "10px",
-                              }}
-                            >
-                              <div className="col-lg-12">
-                                <div
-                                  className="user-name"
-                                  style={{ fontWeight: "bolder" }}
-                                >
-                                  SCORECARD
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="row">
-                              {/* Table Header  Starts Here */}
-                              <div
-                                className="col-lg-12 d-flex border-bottom pt-2 pb-2 font-weight-bolder"
-                                style={{ backgroundColor: "#efefef" }}
-                              >
-                                <div className="col-lg-2">PERSPECTIVE</div>
-                                <div className="col-lg-3">KPI</div>
-                                <div className="col-lg-1 text-center">
-                                  TARGET
-                                </div>
-                                <div className="col-lg-1 text-center">
-                                  WEIGHT
-                                </div>
-                                <div className="col-lg-1 text-center">
-                                  APP. RATE
-                                </div>
-                                <div className="col-lg-2 text-center">
-                                  APP. RESULT
-                                </div>
-                                <div className="col-lg-1 text-center">
-                                  ACTUAL
-                                </div>
-                                <div className="col-lg-1 text-center">
-                                  POINTS
-                                </div>
-                              </div>
-                              {/* Table Header Ends Here */}
-
-                              {/* Financial Review Starts Here */}
-                              {allFinancial?.map((kpi) => {
-                                return (
-                                  <NewSupervisorKpiReviewComponent kpi={kpi} />
-                                );
-                              })}
-
-                              {/* Customer Review Starts Here */}
-                              {allCustomer?.map((kpi) => {
-                                return (
-                                  <NewSupervisorKpiReviewComponent kpi={kpi} />
-                                );
-                              })}
-
-                              {/* Process Review Starts Here */}
-                              {allProcess?.map((kpi) => {
-                                return (
-                                  <NewSupervisorKpiReviewComponent kpi={kpi} />
-                                );
-                              })}
-
-                              {/* Process Review Ends Here */}
-
-                              {/* Customer Review Ends Here */}
-
-                              {allCapacityDevelopment?.map((kpi) => {
-                                return (
-                                  <NewSupervisorKpiReviewComponent kpi={kpi} />
-                                );
-                              })}
-
-                              {/* Financial Review Ends Here */}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="col-lg-12 d-flex border-bottom pt-3 pb-3"
-                        style={{
-                          fontWeight: "bolder",
-                          backgroundColor: "#efefef",
-                        }}
-                      >
-                        <div className="col-lg-2">TOTAL</div>
-                        <div className="col-lg-3"></div>
-                        <div className="col-lg-1 text-center"></div>
-                        <div className="col-lg-1 text-center"></div>
-                        <div className="col-lg-1 text-center"></div>
-                        <div
-                          className="col-lg-2 text-center total-style"
-                          style={{
-                            color: "#DAA520",
-                            fontSize: "18px",
-                            fontWeight: "bolder",
-                          }}
-                        >
-                          {totalAppraiseeResult?.toFixed()}
-                        </div>
-                        <div className="col-lg-1 text-center"></div>
-                        <div
-                          className="col-lg-1 text-center total-style"
-                          style={{
-                            color: "#DAA520",
-                            fontSize: "18px",
-                            fontWeight: "bolder",
-                          }}
-                        >
-                          {Number(kpiResult)?.toFixed()}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    className="col-lg-12 border-bottom pt-2 pb-2 font-weight-bolder"
-                    style={{
-                      fontWeight: "bolder",
-                      marginBottom: "10px",
-                      backgroundColor: "#cccccc",
-                    }}
-                  >
-                    <div className="col-lg-12  user-name">STRENGTHS</div>
-                  </div>
-
-                  <div className="d-flex m-b-50 ">
-                    <div className="card col-lg-8">
-                      <div className="card-body">
-                        {/* <div className="row"> */}
+                <div className="card m-b-50">
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-lg-12">
                         <div className="profile-view">
+                          <label
+                            className="font-18 font-weight-bold m-b-20"
+                            style={{ textDecoration: "underline" }}
+                          >
+                            STAFF DETAILS
+                          </label>
+
                           {/* Staff Details Starts Here */}
-                          <div className="d-flex mb-2 border-bottom">
-                            <div className="col-lg-12 d-flex">
-                              <h4 className="col-lg-4">Skills</h4>
-                              <h4 className="col-lg-4">Rating</h4>
-                              <h4 className="col-lg-4">Appraisee Rating</h4>
-                            </div>
-                          </div>
-                        </div>
-                        {/* </div> */}
+                          <div className="d-flex mb-5">
+                            <div className="col-lg-6">
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  SUPERVISOR ID:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {supervisorId}
+                                </div>
+                              </div>
 
-                        <div className="d-flex mt-3 mb-3 border-bottom">
-                          <div className="col-lg-12 d-flex">
-                            <div className="col-lg-4">Time Management</div>
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  SUPERVISOR NAME:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {supervisorName}
+                                </div>
+                              </div>
 
-                            <div className="col-lg-4">
-                              <div id="ratings_group">
-                                {supervisorTimeManagementScore}/5
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  APPRAISEE NAME:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {appraiseeName}
+                                </div>
+                              </div>
+
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  DATE SUBMITTED:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {dateSubmitted}
+                                </div>
+                              </div>
+
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  STAF ID
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {staffId}
+                                </div>
+                              </div>
+
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  DEPARTMENT:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {departmentName}
+                                </div>
+                              </div>
+
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  LAST PROMOTION DATE:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {lastPromotionDate === "0001-01-01"
+                                    ? "N/A"
+                                    : lastPromotionDate}
+                                </div>
                               </div>
                             </div>
-                            <div className="col-lg-4">
-                              {appraiseeTimeManagementScore}/5
-                            </div>
-                          </div>
-                        </div>
 
-                        <div className="d-flex mt-3 mb-3 border-bottom">
-                          <div className="col-lg-12 d-flex">
-                            <div className="col-lg-4">Punctuality</div>
+                            <div className="col-lg-6">
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  GRADE:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {gradeName}
+                                </div>
+                              </div>
 
-                            <div className="col-lg-4">
-                              <div id="ratings_group">
-                                {supervisorPunctualityScore}/5
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  UNIT:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {unitName}
+                                </div>
+                              </div>
+
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  APPRAISAL PERIOD STATUS:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {appraisalPeriodStatus}
+                                </div>
+                              </div>
+
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  SECOND SUPERVISOR ID:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {secondLevelSupervisorId}
+                                </div>
+                              </div>
+                              <div className="d-flex m-b-10 font_size">
+                                <div className="col-lg-5 col-md-6 col-sm-12 font-weight-bold">
+                                  SECOND SUPERVISOR NAME:
+                                </div>
+                                <div className="col-lg-7 col-md-6 col-sm-12">
+                                  {secondSupervisorName}
+                                </div>
                               </div>
                             </div>
-                            <div className="col-lg-4">
-                              {appraiseePunctualityScore}/5
-                            </div>
                           </div>
-                        </div>
+                          {/* Staff Details Ends Here */}
 
-                        <div className="d-flex mt-3 mb-3 border-bottom">
-                          <div className="col-lg-12 d-flex">
-                            <div className="col-lg-4">Professional Conduct</div>
-
-                            <div className="col-lg-4">
-                              <div id="ratings_group">
-                                {supervisorProfessionalConductScore}/5
-                              </div>
-                            </div>
-                            <div className="col-lg-4">
-                              {appraiseeProfessionalConductScore}/5
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="d-flex mt-3 mb-3 border-bottom">
-                          <div className="col-lg-12 d-flex">
-                            <div className="col-lg-4">Communication</div>
-
-                            <div className="col-lg-4">
-                              <div id="ratings_group">
-                                {supervisorCommunicationScore}/5
-                              </div>
-                            </div>
-                            <div className="col-lg-4">
-                              {appraiseeCommunicationScore}/5
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="d-flex mt-3 mb-3 border-bottom">
-                          <div className="col-lg-12 d-flex">
-                            <div className="col-lg-4">Analytic Thinking</div>
-
-                            <div className="col-lg-4">
-                              <div id="ratings_group">
-                                {supervisorAnalyticalThinkingScore}/5
-                              </div>
-                            </div>
-                            <div className="col-lg-4">
-                              {appraiseeAnalyticalThinkingScore}/5
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="d-flex border-bottom">
                           <div
-                            className="col-lg-12 pt-3 pb-3 d-flex"
+                            className="row d-flex border-bottom pt-2 pb-2 font-weight-bolder"
                             style={{
-                              fontWeight: "bolder",
-                              backgroundColor: "#efefef",
+                              backgroundColor: "#cccccc",
+                              marginBottom: "10px",
                             }}
                           >
-                            <div className="col-lg-4">TOTAL</div>
-                            <div className="col-lg-4">{strengthScore}/25</div>
-                            <div className="col-lg-4">
-                              {appraiseeStrengthScore}/25
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="card col-lg-4">
-                      <div className="card-body">
-                        <div className="profile-view">
-                          <div className="d-flex mb-5">
                             <div className="col-lg-12">
-                              <h4 className="card-title">Ratings Key</h4>
-                              <div>
-                                <p>
-                                  <i className="fa fa-dot-circle-o text-purple mr-2" />
-                                  Excellent
-                                  <span className="float-right">5</span>
-                                </p>
-                                <p>
-                                  <i className="fa fa-dot-circle-o text-success mr-2" />
-                                  Very Good{" "}
-                                  <span className="float-right">4</span>
-                                </p>
-                                <p>
-                                  <i className="fa fa-dot-circle-o text-info mr-2" />
-                                  Average<span className="float-right">3</span>
-                                </p>
-                                <p>
-                                  <i className="fa fa-dot-circle-o text-warning mr-2" />
-                                  Fair<span className="float-right">2</span>
-                                </p>
-                                <p>
-                                  <i className="fa fa-dot-circle-o text-danger mr-2" />
-                                  Poor<span className="float-right">1</span>
-                                </p>
+                              <div
+                                className="user-name"
+                                style={{ fontWeight: "bolder" }}
+                              >
+                                SCORECARD
                               </div>
                             </div>
+                          </div>
+
+                          <div className="row">
+                            {/* Table Header  Starts Here */}
+                            <div
+                              className="col-lg-12 d-flex border-bottom pt-2 pb-2 font-weight-bolder"
+                              style={{ backgroundColor: "#efefef" }}
+                            >
+                              <div className="col-lg-2">PERSPECTIVE</div>
+                              <div className="col-lg-3">KPI</div>
+                              <div className="col-lg-1 text-center">TARGET</div>
+                              <div className="col-lg-1 text-center">WEIGHT</div>
+                              <div className="col-lg-1 text-center">
+                                APP. RATING
+                              </div>
+                              <div className="col-lg-2 text-center">
+                                APP. SCORE
+                              </div>
+                              <div className="col-lg-1 text-center">
+                                SUP. SCORE
+                              </div>
+                              <div className="col-lg-1 text-center">
+                                FINAL RATING
+                              </div>
+                            </div>
+                            {/* Table Header Ends Here */}
+
+                            {/* Financial Review Starts Here */}
+                            {allFinancial?.map((kpi) => {
+                              return (
+                                <NewSupervisorKpiReviewComponent kpi={kpi} />
+                              );
+                            })}
+
+                            {/* Customer Review Starts Here */}
+                            {allCustomer?.map((kpi) => {
+                              return (
+                                <NewSupervisorKpiReviewComponent kpi={kpi} />
+                              );
+                            })}
+
+                            {/* Process Review Starts Here */}
+                            {allProcess?.map((kpi) => {
+                              return (
+                                <NewSupervisorKpiReviewComponent kpi={kpi} />
+                              );
+                            })}
+
+                            {/* Process Review Ends Here */}
+
+                            {/* Customer Review Ends Here */}
+
+                            {allCapacityDevelopment?.map((kpi) => {
+                              return (
+                                <NewSupervisorKpiReviewComponent kpi={kpi} />
+                              );
+                            })}
+
+                            {/* Financial Review Ends Here */}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="col-lg-12 d-flex border-bottom pt-3 pb-3"
+                      style={{
+                        fontWeight: "bolder",
+                        backgroundColor: "#efefef",
+                      }}
+                    >
+                      <div className="col-lg-2">TOTAL</div>
+                      <div className="col-lg-3"></div>
+                      <div className="col-lg-1 text-center"></div>
+                      <div className="col-lg-1 text-center"></div>
+                      <div className="col-lg-1 text-center"></div>
+                      <div
+                        className="col-lg-2 text-center total-style"
+                        style={{
+                          color: "#DAA520",
+                          fontSize: "18px",
+                          fontWeight: "bolder",
+                        }}
+                      >
+                        {totalAppraiseeResult?.toFixed()}
+                      </div>
+                      <div className="col-lg-1 text-center"></div>
+                      <div
+                        className="col-lg-1 text-center total-style"
+                        style={{
+                          color: "#DAA520",
+                          fontSize: "18px",
+                          fontWeight: "bolder",
+                        }}
+                      >
+                        {Number(kpiResult)?.toFixed()}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className="col-lg-12 border-bottom pt-2 pb-2 font-weight-bolder"
+                  style={{
+                    fontWeight: "bolder",
+                    marginBottom: "10px",
+                    backgroundColor: "#cccccc",
+                  }}
+                >
+                  <div className="col-lg-12  user-name">STRENGTHS</div>
+                </div>
+
+                <div className="d-flex m-b-50 ">
+                  <div className="card col-lg-8">
+                    <div className="card-body">
+                      {/* <div className="row"> */}
+                      <div className="profile-view">
+                        {/* Staff Details Starts Here */}
+                        <div className="d-flex mb-2 border-bottom">
+                          <div className="col-lg-12 d-flex">
+                            <h4 className="col-lg-4">Skills</h4>
+                            <h4 className="col-lg-4">Rating</h4>
+                            <h4 className="col-lg-4">Appraisee Rating</h4>
+                          </div>
+                        </div>
+                      </div>
+                      {/* </div> */}
+
+                      <div className="d-flex mt-3 mb-3 border-bottom">
+                        <div className="col-lg-12 d-flex">
+                          <div className="col-lg-4">Time Management</div>
+
+                          <div className="col-lg-4">
+                            <div id="ratings_group">
+                              {supervisorTimeManagementScore}/5
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            {appraiseeTimeManagementScore}/5
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-flex mt-3 mb-3 border-bottom">
+                        <div className="col-lg-12 d-flex">
+                          <div className="col-lg-4">Punctuality</div>
+
+                          <div className="col-lg-4">
+                            <div id="ratings_group">
+                              {supervisorPunctualityScore}/5
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            {appraiseePunctualityScore}/5
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-flex mt-3 mb-3 border-bottom">
+                        <div className="col-lg-12 d-flex">
+                          <div className="col-lg-4">Professional Conduct</div>
+
+                          <div className="col-lg-4">
+                            <div id="ratings_group">
+                              {supervisorProfessionalConductScore}/5
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            {appraiseeProfessionalConductScore}/5
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-flex mt-3 mb-3 border-bottom">
+                        <div className="col-lg-12 d-flex">
+                          <div className="col-lg-4">Communication</div>
+
+                          <div className="col-lg-4">
+                            <div id="ratings_group">
+                              {supervisorCommunicationScore}/5
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            {appraiseeCommunicationScore}/5
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-flex mt-3 mb-3 border-bottom">
+                        <div className="col-lg-12 d-flex">
+                          <div className="col-lg-4">Analytic Thinking</div>
+
+                          <div className="col-lg-4">
+                            <div id="ratings_group">
+                              {supervisorAnalyticalThinkingScore}/5
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            {appraiseeAnalyticalThinkingScore}/5
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-flex border-bottom">
+                        <div
+                          className="col-lg-12 pt-3 pb-3 d-flex"
+                          style={{
+                            fontWeight: "bolder",
+                            backgroundColor: "#efefef",
+                          }}
+                        >
+                          <div className="col-lg-4">TOTAL</div>
+                          <div className="col-lg-4">{strengthScore}/25</div>
+                          <div className="col-lg-4">
+                            {appraiseeStrengthScore}/25
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div
-                    className="col-lg-12 border-bottom pt-2 pb-2 font-weight-bolder"
-                    style={{
-                      fontWeight: "bolder",
-                      marginBottom: "10px",
-                      backgroundColor: "#cccccc",
-                    }}
-                  >
-                    <div className="col-lg-12  user-name">TRAINING</div>
-                  </div>
-
-                  <div className="card">
+                  <div className="card col-lg-4">
                     <div className="card-body">
-                      <div className="profile-view d-flex">
-                        <div className="col-lg-6">
-                          <div className="panel panel-default">
-                            <div className="panel-heading text-center font-weight-bold">
-                              BEHAVIOURAL TRAINING
-                            </div>
-                            {behaviouralTrainingsArray.length === 0 ? (
-                              <p>No behavioral training was selected</p>
-                            ) : (
-                              <div className="panel-body">
-                                <div className="m-3">
-                                  <div className="form-group">
-                                    <label>
-                                      Suggest a Behavioural Training:
-                                    </label>
-                                    {behaviouralTrainingsArray?.map(
-                                      (training) => {
-                                        return (
-                                          <ul>
-                                            <li>{training}</li>
-                                          </ul>
-                                        );
-                                      }
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                            <div className="mt-3">
-                              <div className="m-3">
-                                <div className="form-group">
-                                  <label>
-                                    Suggested Behavioural Training By Appraisee:
-                                  </label>
-                                  {appraiseeBehaviouralTrainings}
-                                </div>
-                              </div>
+                      <div className="profile-view">
+                        <div className="d-flex mb-5">
+                          <div className="col-lg-12">
+                            <h4 className="card-title">Ratings Key</h4>
+                            <div>
+                              <p>
+                                <i className="fa fa-dot-circle-o text-purple mr-2" />
+                                Excellent
+                                <span className="float-right">5</span>
+                              </p>
+                              <p>
+                                <i className="fa fa-dot-circle-o text-success mr-2" />
+                                Very Good <span className="float-right">4</span>
+                              </p>
+                              <p>
+                                <i className="fa fa-dot-circle-o text-info mr-2" />
+                                Average<span className="float-right">3</span>
+                              </p>
+                              <p>
+                                <i className="fa fa-dot-circle-o text-warning mr-2" />
+                                Fair<span className="float-right">2</span>
+                              </p>
+                              <p>
+                                <i className="fa fa-dot-circle-o text-danger mr-2" />
+                                Poor<span className="float-right">1</span>
+                              </p>
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                        <div className="col-lg-6">
-                          <div className="panel panel-default">
-                            <div className="panel-heading text-center font-weight-bold">
-                              FUNCTIONAL TRAINING
-                            </div>
-                            {functionalTrainingsArray.length === 0 ? (
-                              <p>No functional training selected</p>
-                            ) : (
-                              <div className="panel-body">
-                                <div className="m-3">
-                                  <div className="form-group">
-                                    <label>
-                                      Suggest a Functional Training:
-                                    </label>
-                                    {functionalTrainingsArray?.map(
-                                      (training) => {
-                                        return (
-                                          <ul>
-                                            <li>{training}</li>
-                                          </ul>
-                                        );
-                                      }
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                            <div className="mt-3">
+                <div
+                  className="col-lg-12 border-bottom pt-2 pb-2 font-weight-bolder"
+                  style={{
+                    fontWeight: "bolder",
+                    marginBottom: "10px",
+                    backgroundColor: "#cccccc",
+                  }}
+                >
+                  <div className="col-lg-12  user-name">TRAINING</div>
+                </div>
+
+                <div className="card">
+                  <div className="card-body">
+                    <div className="profile-view d-flex">
+                      <div className="col-lg-6">
+                        <div className="panel panel-default">
+                          <div className="panel-heading text-center font-weight-bold">
+                            BEHAVIOURAL TRAINING
+                          </div>
+                          {behaviouralTrainingsArray.length === 0 ? (
+                            <p>No behavioral training was selected</p>
+                          ) : (
+                            <div className="panel-body">
                               <div className="m-3">
                                 <div className="form-group">
-                                  <label>
-                                    Suggested Functional Training By Appraisee:
-                                  </label>
-                                  {appraiseeFunctionalTrainings}
+                                  <label>Suggest a Behavioural Training:</label>
+                                  {behaviouralTrainingsArray?.map(
+                                    (training) => {
+                                      return (
+                                        <ul>
+                                          <li>{training}</li>
+                                        </ul>
+                                      );
+                                    }
+                                  )}
                                 </div>
+                              </div>
+                            </div>
+                          )}
+                          <div className="mt-3">
+                            <div className="m-3">
+                              <div className="form-group">
+                                <label>
+                                  Suggested Behavioural Training By Appraisee:
+                                </label>
+                                {appraiseeBehaviouralTrainings}
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <div
-                        className="col-lg-12"
-                        style={{ marginTop: "30px", marginBottom: "20px" }}
-                      >
-                        {/* <div
+                      <div className="col-lg-6">
+                        <div className="panel panel-default">
+                          <div className="panel-heading text-center font-weight-bold">
+                            FUNCTIONAL TRAINING
+                          </div>
+                          {functionalTrainingsArray.length === 0 ? (
+                            <p>No functional training selected</p>
+                          ) : (
+                            <div className="panel-body">
+                              <div className="m-3">
+                                <div className="form-group">
+                                  <label>Suggest a Functional Training:</label>
+                                  {functionalTrainingsArray?.map((training) => {
+                                    return (
+                                      <ul>
+                                        <li>{training}</li>
+                                      </ul>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          <div className="mt-3">
+                            <div className="m-3">
+                              <div className="form-group">
+                                <label>
+                                  Suggested Functional Training By Appraisee:
+                                </label>
+                                {appraiseeFunctionalTrainings}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className="col-lg-12"
+                      style={{ marginTop: "30px", marginBottom: "20px" }}
+                    >
+                      {/* <div
                           className="font-weight-bolder"
                           style={{
                             marginBottom: "30px",
@@ -785,20 +774,20 @@ const SupervisorAppraisalReview2 = () => {
                           COMMENTS
                         </div> */}
 
-                        <div className="form-group mb-5">
-                          <div
-                            className="mb-3 font-weight-bold"
-                            style={{
-                              marginBottom: "30px",
-                              textDecoration: "underline",
-                            }}
-                          >
-                            SUPERVISOR'S COMMENT
-                          </div>
-                          {supervisorComment}
+                      <div className="form-group mb-5">
+                        <div
+                          className="mb-3 font-weight-bold"
+                          style={{
+                            marginBottom: "30px",
+                            textDecoration: "underline",
+                          }}
+                        >
+                          SUPERVISOR'S COMMENT
                         </div>
+                        {supervisorComment}
+                      </div>
 
-                        {/* <div className="form-group">
+                      {/* <div className="form-group">
                           <div
                             className="mb-3 font-weight-bold"
                             style={{
@@ -820,46 +809,46 @@ const SupervisorAppraisalReview2 = () => {
                             platea dictumst. Uhuh ... yih! dapibizzle.
                           </div>
                         </div> */}
+                    </div>
+
+                    <div className="col-lg-4" style={{ marginTop: "50px" }}>
+                      <div
+                        className="font-weight-bolder"
+                        style={{
+                          marginBottom: "20px",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        RECOMMENDATION
                       </div>
 
-                      <div className="col-lg-4" style={{ marginTop: "50px" }}>
-                        <div
-                          className="font-weight-bolder"
-                          style={{
-                            marginBottom: "20px",
-                            textDecoration: "underline",
-                          }}
-                        >
-                          RECOMMENDATION
-                        </div>
-
-                        <div className="form-group ">{recommendation}</div>
-                      </div>
+                      <div className="form-group ">{recommendation}</div>
                     </div>
                   </div>
-                  {/* Supervisor's Comments Ends Here */}
                 </div>
+                {/* Supervisor's Comments Ends Here */}
+              </div>
 
-                {/* Submit Appraisal Button */}
-                <div
-                  className="form-group col-lg-12 col-md-12 col-sm-12"
-                  style={{ marginTop: "50px" }}
-                >
-                  <div className="d-flex align-items-center justify-content-center">
-                    <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
-                      <button
-                        className="btn btn-block btn-suntrust font-weight-700"
-                        onClick={() => toggleModal()}
-                      >
-                        {updateAppraiseLoading ? <Loader /> : "Confirm"}
-                      </button>
-                    </div>
+              {/* Submit Appraisal Button */}
+              <div
+                className="form-group col-lg-12 col-md-12 col-sm-12"
+                style={{ marginTop: "50px" }}
+              >
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
+                    <button
+                      className="btn btn-block btn-suntrust font-weight-700"
+                      onClick={() => toggleModal()}
+                    >
+                      {updateAppraiseLoading ? <Loader /> : "Confirm"}
+                    </button>
                   </div>
                 </div>
               </div>
-              {/* /Page Content */}
             </div>
+            {/* /Page Content */}
           </div>
+          {/* </div> */}
         </div>
       </div>
 

@@ -418,7 +418,7 @@ const UnitKPI = () => {
                     // bordered
                     dataSource={organizational_data}
                     rowKey={(record) => record.id}
-                    onChange={console.log("change")}
+                    // onChange={console.log("change")}
                   />
                 </div>
               </div>

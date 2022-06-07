@@ -39,7 +39,7 @@ const AppraiseeUpdatedReview = () => {
 
   const staffData = JSON.parse(localStorage.getItem("cachedData"));
 
-  const { departmentName, gradeName, secondLevelSupervisorId, secondLevelSupervisorName, unitName } =
+  const { departmentName, secondLevelSupervisorId, secondLevelSupervisorName, unitName } =
     staffData;
 
   const { data: details } = useSelector(
@@ -77,6 +77,7 @@ const AppraiseeUpdatedReview = () => {
     supervisorBehaviouralTrainings,
     reasonForRejection,
     rejectionStage,
+    gradeName,
     kpis,
   } = details;
 
@@ -368,10 +369,10 @@ const AppraiseeUpdatedReview = () => {
                                   APP. RESULT
                                 </div>
                                 <div className="col-lg-1 text-center">
-                                  ACTUAL
+                                  SUP. SCORE
                                 </div>
                                 <div className="col-lg-1 text-center">
-                                  POINTS
+                                  FINAL RATING
                                 </div>
                               </div>
                               {/* Table Header Ends Here */}

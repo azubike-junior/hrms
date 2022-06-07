@@ -15,13 +15,14 @@ const initialState = {
 
 export const deleteTeamGoal = createAsyncThunk(
   "deleteTeamGoal",
-  async ({ teamGoalId, dispatch }, {rejectWithValue}) => {
+  async ({ teamGoalId, dispatch, toggleModal }, {rejectWithValue}) => {
     try {
       const response = await axios.delete(
         `${performanceManagementConfigUrl}/DeleteTeamGoal/id?Id=${teamGoalId}`
       );
       if (response.data.responseCode === "00") {
         dispatch(getTeamGoals());
+        toggleModal()
         return response.data;
       }
       return response.data;

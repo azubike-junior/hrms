@@ -29,6 +29,8 @@ import { getCategoryTypes } from "./../../../services/PerformanceManagement/Conf
 import { getRateTypeMetric } from "./../../../services/PerformanceManagement/Configurations/getRateTypeMetric/index";
 import { getTargetSource } from "./../../../services/PerformanceManagement/Configurations/getTargetSources/index";
 import { rateTypes, targetSources } from "../../../utils/helper";
+import Modal from "react-bootstrap/Modal";
+import { getKpiByJobFunc } from './../../../services/PerformanceManagement/Configurations/individualKpi/getKpiByJobFunc';
 
 const IndividualKPI = () => {
   const dispatch = useDispatch();
@@ -39,6 +41,8 @@ const IndividualKPI = () => {
 
   // const targetSources = [];
   // const rateTypes = [];
+  const [openModal, setOpenModal] = useState(false);
+
   const [allKPIs, setAllKPIs] = useState([]);
   const [jobFuncs, setJobFuncs] = useState([]);
   const [kpiId, setKpiId] = useState("");
@@ -46,6 +50,16 @@ const IndividualKPI = () => {
   const { data: categories } = useSelector(
     (state) => state.performanceManagement.getCategoryTypesReducer
   );
+
+  const { data: KPIsByJobFunc } = useSelector(
+    (state) => state.performanceManagement.getKpiByJobFunctionReducer
+  );
+
+  const toggleModal = () => {
+    setOpenModal(!openModal);
+  };
+
+  console.log(">>>>>kpisbyJonFunc", KPIsByJobFunc);
 
   // const { data: targetSources } = useSelector(
   //   (state) => state.performanceManagement.getTargetSourceReducer
@@ -98,6 +112,16 @@ const IndividualKPI = () => {
   };
 
   const handleDepartment = (e) => {
+    const allJobFunctions = jobFunctions?.filter(
+      (job) => job.departmentId === Number(e.target.value)
+    );
+    setJobFuncs(allJobFunctions);
+  };
+
+  const handleFilteredDept = (e) => {
+    if (e.target.value === "all") {
+      setAllKPIs(KPIs);
+    }
     const allJobFunctions = jobFunctions?.filter(
       (job) => job.departmentId === Number(e.target.value)
     );
@@ -157,6 +181,15 @@ const IndividualKPI = () => {
     )?.sourceName;
   };
 
+  const handleSelectedOption = (e) => {
+    if (e.target.value === "all") {
+      setAllKPIs(KPIs);
+    }
+    console.log(">>>>>>>>e", e.target.value);
+    const values = { setAllKPIs, jobId: e.target.value };
+    dispatch(getKpiByJobFunc(values));
+  };
+
   const {
     register,
     handleSubmit,
@@ -171,12 +204,11 @@ const IndividualKPI = () => {
 
   const addKpiHandler = (data) => {
     const { organizationalGoal, departmentId, ...rest } = data;
-    console.log(">>>>rest", rest);
     dispatch(addIndividualKpi({ data, reset, dispatch }));
   };
 
   useEffect(() => {
-    dispatch(getIndividualKpis());
+    dispatch(getIndividualKpis(setAllKPIs));
   }, []);
 
   useEffect(() => {
@@ -199,16 +231,6 @@ const IndividualKPI = () => {
     dispatch(getCategoryTypes());
   }, []);
 
-  // useEffect(() => {
-  //   if ($(".select").length > 0) {
-  //     $(".select").select2({
-  //       minimumResultsForSearch: -1,
-  //       width: "100%",
-  //     });
-  //   }
-  // });
-
-  // Table displayed on
   const kpi_columns = [
     {
       title: "Category Type",
@@ -247,8 +269,9 @@ const IndividualKPI = () => {
           data-target="#delete_kpi"
           className="btn btn-sm btn-outline-danger m-r-10"
           onClick={() => {
-            // console.log(">>>>>text", text.id);
+            toggleModal();
             setKpiId(text.id);
+            console.log(">>>>>>>tetx", text.id);
           }}
         >
           <i className="fa fa-trash" />
@@ -260,7 +283,7 @@ const IndividualKPI = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>Configurations - Individual KPI</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
 
@@ -466,14 +489,6 @@ const IndividualKPI = () => {
                 errors={errors?.measurableTarget}
               />
 
-              {/* <div className="col-lg-3 m-b-10">
-                <div className="m-b-10">Measurable Target (Metric)</div>
-                <div className="form-group">
-                  <input type="text" className="form-control" />
-                </div>
-              </div> */}
-
-              {/* <div className="col-lg-3 m-b-10"> */}
               <InputField
                 register={register}
                 name="weightedScore"
@@ -483,7 +498,6 @@ const IndividualKPI = () => {
                 type="text"
                 errors={errors?.weightedScore}
               />
-              {/* </div> */}
 
               <div className="col-lg-3 col-md-6 col-sm-12 m-t-30 m-b-10">
                 <button
@@ -495,6 +509,56 @@ const IndividualKPI = () => {
                 </button>
               </div>
             </form>
+
+            <div className="row d-flex m-t-30">
+              <div className="float-left d-flex col-lg-9">
+                <div className="dropdown m-r-20 col-lg-5">
+                  <div className="form-group">
+                    <label htmlFor="">Filter By Department</label>
+                    <select
+                      className="form-control"
+                      // value={selectedFiltered}
+                      onChange={(e) => handleFilteredDept(e)}
+                    >
+                      <option value="all">All</option>
+                      {departments?.map((department) => {
+                        return (
+                          <option
+                            key={department?.departmentId}
+                            value={department?.departmentId}
+                          >
+                            {department?.description}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="dropdown col-lg-5">
+                  <div className="form-group">
+                    <label htmlFor="">Filter By Job Function</label>
+
+                    <select
+                      // value={selectedOption}
+                      onChange={(e) => handleSelectedOption(e)}
+                      className="form-control"
+                    >
+                      <option value="">-Select-</option>
+                      {jobFuncs?.map((job) => {
+                        return (
+                          <option key={job?.jobId} value={job?.jobId}>
+                            {job?.description}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <h4 className="m-t-40">Total Result: {allKPIs.length}</h4>
+            </div>
 
             <div className="row m-t-50 m-b-20">
               {/* <h4 className="user-name m-b-10 col-md-12">CATEGORY LIST</h4> */}
@@ -514,35 +578,21 @@ const IndividualKPI = () => {
                     style={{ overflowX: "auto" }}
                     columns={kpi_columns}
                     // bordered
-                    dataSource={KPIs}
+                    dataSource={allKPIs}
                     rowKey={(record) => record.id}
                     onChange={console.log("change")}
                   />
                 </div>
               </div>
             </div>
-
-            {/* Submit Button */}
-            {/* <div className="form-group col-lg-12 col-md-12 col-sm-12 m-b-20">
-              <div className="d-flex align-items-center justify-content-center">
-                <div className="col-lg-4 col-md-6 col-sm-12 m-b-10">
-                  <a
-                    href=""
-                    className="btn btn-block btn-primary font-weight-700"
-                  >
-                    SUBMIT
-                  </a>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
       {/* /Page Content */}
 
       {/* Delete Request Modal */}
-      <div className="modal custom-modal fade" id="delete_kpi" role="dialog">
-        <div className="modal-dialog modal-dialog-centered">
+      <Modal show={openModal} centered backdrop="static" keyboard={false}>
+        <div className="modal-90w  modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-body">
               <div className="form-header">
@@ -552,32 +602,32 @@ const IndividualKPI = () => {
               <div className="modal-btn delete-action">
                 <div className="row">
                   <div className="col-6">
-                    <a
+                    <button
                       onClick={() => {
-                        const data = { kpiId, dispatch };
+                        const data = { kpiId, dispatch, toggleModal };
                         dispatch(deleteKpi(data));
                       }}
                       data-dismiss="modal"
                       className="btn btn-block btn-primary"
                     >
                       Delete
-                    </a>
+                    </button>
                   </div>
                   <div className="col-6">
-                    <a
-                      href=""
-                      data-dismiss="modal"
+                    <button
+                      onClick={() => toggleModal()}
                       className="btn btn-block btn-outline-danger"
                     >
                       Cancel
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </Modal>
+
       {/* /Delete Request Modal */}
     </div>
   );

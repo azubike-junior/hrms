@@ -262,12 +262,12 @@ const StaffAppraisalReview = () => {
       {/* Page Wrapper */}
       <div className="page-wrapper">
         <Helmet>
-          <title>User Dashboard - HRMS Admin Template</title>
+          <title>| Appraisal Review</title>
           <meta name="description" content="Login page" />
         </Helmet>
         {/* Page Content */}
 
-        <div className="content container-fluid">
+        <div className="m-t-50 container-fluid">
           {/* Page Header */}
 
           <div className="page-header">
@@ -302,8 +302,8 @@ const StaffAppraisalReview = () => {
                       <div className="col-lg-3">KPI</div>
                       <div className="col-lg-1 text-center">TARGET</div>
                       <div className="col-lg-2 text-center">WEIGHT</div>
-                      <div className="col-lg-2 text-center">RATING</div>
-                      <div className="col-lg-2 text-center">RESULT</div>
+                      <div className="col-lg-2 text-center">APP. RATING</div>
+                      <div className="col-lg-2 text-center">APP. SCORE</div>
                     </div>
                     {/* Table Header Ends Here */}
 

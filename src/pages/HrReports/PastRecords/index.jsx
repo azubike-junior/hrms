@@ -263,7 +263,7 @@ const PastRecords = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>HR Past Records</title>
+        <title>History</title>
         <meta name="description" content="Login page" />
       </Helmet>
 

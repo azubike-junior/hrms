@@ -16,10 +16,14 @@ export const login = createAsyncThunk(
   "loginUser",
   async (data, { rejectWithValue }) => {
     const { email, password, history } = data;
+    console.log(">>>>>>password", password);
     try {
       const response = await axios.post(
-        `http://10.11.200.97/PerformanceManagement/Login?userName=${email}&password=${password}`,
-        data
+        `http://10.11.200.97/PerformanceManagement/Login`,
+        {
+          username: email,
+          password,
+        }
       );
 
       if (response.data.responseCode === "94") {

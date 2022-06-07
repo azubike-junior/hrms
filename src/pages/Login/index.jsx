@@ -42,7 +42,7 @@ const LoginPage = () => {
   return (
     <>
       <Helmet>
-        <title>Login - HRMS Admin Template</title>
+        <title>Login - HRMS</title>
         <meta name="description" content="Login page" />
       </Helmet>
       <div>
@@ -55,8 +55,9 @@ const LoginPage = () => {
               <div className="top">
                 <div className="image">
                   <img
+                    className="mt-3"
                     src={logo}
-                    style={{ width: "110px", height: "100px" }}
+                    style={{ width: "80px", height: "80px" }}
                     alt="User"
                   />
                 </div>

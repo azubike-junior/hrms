@@ -14,13 +14,14 @@ const initialState = {
 
 export const deleteKpi = createAsyncThunk(
   "deleteKpi",
-  async ({ kpiId, dispatch }, {rejectWithValue}) => {
+  async ({ kpiId, dispatch, toggleModal }, {rejectWithValue}) => {
     try {
       const response = await axios.delete(
         `${performanceManagementConfigUrl}/DeleteIndividualKpi/id?Id=${kpiId}`
       );
       if (response.data.responseCode === "00") {
         dispatch(getIndividualKpis());
+        toggleModal()
         return response.data;
       }
       return response.data;

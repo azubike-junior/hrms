@@ -49,7 +49,6 @@ const PreProcessAppraisal = () => {
 
   const {
     departmentName,
-    gradeName,
     firstName, lastName,
     staffId: loggedInSecondLevelSupervisor,
     unitName,
@@ -76,6 +75,7 @@ const PreProcessAppraisal = () => {
     appraiseeComment,
     recommendation,
     status,
+    gradeName,
     supervisorTimeManagementScore,
     supervisorPunctualityScore,
     supervisorProfessionalConductScore,
@@ -213,12 +213,12 @@ const PreProcessAppraisal = () => {
   return (
     <div className="">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>| Appraisal Review</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
       {/* Page Content */}
       <div className="page-wrapper">
-        <div className="content container-fluid">
+        <div className="m-t-50 container-fluid">
           {/* Page Header */}
           <div className="page-header d-flex justify-content-between pr-3">
             <div className="row ">
@@ -257,7 +257,7 @@ const PreProcessAppraisal = () => {
           {/* /Page Header */}
 
           <div className="card m-b-50">
-            <div className="card-body">
+            {/* <div className="card-body"> */}
               <div className="row">
                 <div className="col-md-12">
                   <div className="profile-view">
@@ -434,16 +434,16 @@ const PreProcessAppraisal = () => {
                                     WEIGHT
                                   </div>
                                   <div className="col-lg-1 text-center">
-                                    APP. RATE
+                                    APP. RATING
                                   </div>
                                   <div className="col-lg-2 text-center">
-                                    APP. RESULT
+                                    APP. SCORE
                                   </div>
                                   <div className="col-lg-1 text-center">
-                                    ACTUAL
+                                    SUP. SCORE
                                   </div>
                                   <div className="col-lg-1 text-center">
-                                    POINTS
+                                    FINAL RATING
                                   </div>
                                 </div>
                                 {/* Table Header Ends Here */}
@@ -1139,7 +1139,7 @@ const PreProcessAppraisal = () => {
 
                 {/* /Page Content */}
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

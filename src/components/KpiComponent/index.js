@@ -210,8 +210,8 @@ export const NewKpiInputComponent = ({
         {kpi.category.toUpperCase()}
       </div>
       <div className="col-lg-3">{kpi.description}</div>
-      <div className="col-lg-2 text-center">{kpi.measurableTarget}</div>
-      <div className="col-lg-2 text-center">{kpi.weightedScore}</div>
+      <div className="col-lg-1 text-center">{kpi.measurableTarget}</div>
+      <div className="col-lg-1 text-center">{kpi.weightedScore}</div>
       <div className="col-lg-2 text-center">
         <input
           type="number"
@@ -225,11 +225,11 @@ export const NewKpiInputComponent = ({
         />
       </div>
 
-      <div className="col-lg-1 text-center">
+      <div className="col-lg-2 text-center">
         {errors[kpi.id] ? (
           <p className="error-color">target Exceeded</p>
-        ) : appraiseeResults[kpi.id]?.toFixed() ? (
-          appraiseeResults[kpi.id]?.toFixed()
+        ) : appraiseeResults[kpi.id]?.toFixed(1) ? (
+          appraiseeResults[kpi.id]?.toFixed(1)
         ) : (
           defaultRate
         )}
@@ -342,14 +342,14 @@ export const NewSupervisorKpiInputComponent = ({
           value={values?.id}
           onChange={(e) => updateValues(e, kpi.kpiId, kpi)}
           type="number"
-          className={errors[kpi.kpiId] ? "error-input2" : "form-control"}
+          className={errors[kpi.kpiId] ? "error-input2" : "form-control review-input"}
         />
       </div>
       <div className="col-lg-1 text-center">
         {errors[kpi.kpiId] ? (
           <p className="error-color">Target Exceeded</p>
         ) : (
-          appraiseeResults[kpi.kpiId]?.toFixed()
+          appraiseeResults[kpi.kpiId]?.toFixed(1)
         )}
       </div>
     </div>

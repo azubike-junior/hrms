@@ -55,7 +55,7 @@ const Trainings = () => {
                   <li className="nav-item">
                     <a
                       onClick={() => setTraining(1)}
-                      className="nav-link active"
+                      className="nav-link"
                       data-toggle="tab"
                     >
                       BEHAVIOURAL TRAINING

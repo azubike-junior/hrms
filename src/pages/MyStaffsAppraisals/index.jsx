@@ -116,44 +116,12 @@ const StaffsAppraisals = () => {
         </Link>
       ),
     },
-    // {
-    //   title: "",
-    //   render: (text, record) =>
-    //     text.rejectionStage === 5 && (
-    //       <Link
-    //         onClick={() => console.log("text", text.status)}
-    //         to={`/performanceManagement/updateSupervisorComment/${text.appraisalReference}`}
-    //         className="btn btn-sm btn-outline-primary m-r-10"
-    //       >
-    //         <i className="fa fa-eye m-r-5" />
-    //         VIEW
-    //       </Link>
-    //     ),
-    // },
-    // {
-    //   title: "",
-    //   render: (text, record) =>
-    //     text.status === "COMPLETE" || text.status === "INPROGRESS" ? (
-    //       ""
-    //     ) : (
-    //       <Link
-    //         onClick={() => {
-    //           setAppraisalRef(text.appraisalReference);
-    //           toggleModal();
-    //         }}
-    //         className="btn btn-sm btn-outline-danger m-r-10"
-    //       >
-    //         <i className="fa fa-refresh pr-2" aria-hidden="true"></i>
-    //         REJEC
-    //       </Link>
-    //     ),
-    // },
   ];
 
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Expense Management | My Requests</title>
+        <title>Staffs Appraisals</title>
         <meta name="description" content="Login page" />
       </Helmet>
 

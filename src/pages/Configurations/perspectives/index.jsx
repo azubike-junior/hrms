@@ -106,7 +106,7 @@ const Perspective = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>Configurations - Perspectives</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
 

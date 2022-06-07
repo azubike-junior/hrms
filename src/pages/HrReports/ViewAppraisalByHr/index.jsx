@@ -40,8 +40,7 @@ const ViewAppraisalByHr = () => {
 
   const {
     departmentName,
-    gradeName,
-    // secondLevelSupervisorId,
+   // secondLevelSupervisorId,
     firstName, lastName,
     secondLevelSupervisorName,
     staffId: loggedInStaffId,
@@ -85,6 +84,7 @@ const ViewAppraisalByHr = () => {
     supervisorBehaviouralTrainings,
     secondLevelSupervisorComment,
     rejectionStage,
+    gradeName,
     kpis,
   } = details;
 
@@ -192,11 +192,11 @@ const ViewAppraisalByHr = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>View Appraisal By Hr</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
       {/* Page Content */}
-      <div className="content container-fluid">
+      <div className="m-t-50 container-fluid">
         {/* Page Header */}
         <div className="page-header">
           <div className="row">
@@ -214,7 +214,7 @@ const ViewAppraisalByHr = () => {
         {/* /Page Header */}
 
         <div className="card m-b-50">
-          <div className="card-body">
+          {/* <div className="card-body"> */}
             <div className="row">
               <div className="col-md-12">
                 <div className="profile-view">
@@ -932,7 +932,7 @@ const ViewAppraisalByHr = () => {
               </div>
               {/* /Page Content */}
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </div>
 

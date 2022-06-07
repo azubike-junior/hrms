@@ -15,15 +15,19 @@ const initialState = {
   isSuccessful: false,
 };
 
-export const getKpiByJobFunction = createAsyncThunk(
+export const getKpiByJobFunc = createAsyncThunk(
   "getKpiByJobFunction",
-  async (jobId) => {
+  async (values) => {
+    const { setAllKPIs, jobId } = values;
+    console.log(">>>>>setAllKpis", setAllKPIs, jobId);
     try {
       const response = await axios.get(
         `${performanceManagementConfigUrl}/GetAllKpiByJobFunction/id?id=${jobId}`
       );
       // console.log(">>>>.response", response)
       if (response.status === 200) {
+          console.log(">>>>>response", response.data)
+        setAllKPIs(response.data);
         return response.data;
       }
       return response.data;
@@ -33,25 +37,25 @@ export const getKpiByJobFunction = createAsyncThunk(
   }
 );
 
-const getKpiByJobFunctionSlice = createSlice({
+const getKpiByJobFuncSlice = createSlice({
   name: "getKpiByJobFunction",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getKpiByJobFunction.rejected, (state, action) => {
+    builder.addCase(getKpiByJobFunc.rejected, (state, action) => {
       state.error = action.payload;
       state.error2 = action.error.name;
       state.loading = false;
       state.isSuccessful = false;
     });
-    builder.addCase(getKpiByJobFunction.fulfilled, (state, action) => {
+    builder.addCase(getKpiByJobFunc.fulfilled, (state, action) => {
       state.loading = true;
       state.data = action.payload;
       state.loading = false;
       state.isSuccessful = true;
       state.error = "";
     });
-    builder.addCase(getKpiByJobFunction.pending, (state, action) => {
+    builder.addCase(getKpiByJobFunc.pending, (state, action) => {
       state.loading = true;
       state.error = action.payload;
     });
@@ -59,4 +63,4 @@ const getKpiByJobFunctionSlice = createSlice({
 });
 
 // export const { useRegisterMutation } = AuthHandler;
-export default getKpiByJobFunctionSlice.reducer;
+export default getKpiByJobFuncSlice.reducer;

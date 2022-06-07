@@ -135,7 +135,7 @@ export default function FunctionalMetric() {
           <div className="modal-content">
             <div className="modal-body">
               <div className="form-header">
-                <h3>Delete Request</h3>
+                <h3>Delete Functional Training</h3>
                 <p>Are you sure want to delete?</p>
               </div>
               <div className="modal-btn delete-action">

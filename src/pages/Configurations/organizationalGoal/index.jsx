@@ -17,10 +17,16 @@ import { getText } from "../../../utils/helper";
 import { deleteOrganizationalGoal } from "../../../services/PerformanceManagement/Configurations/organizationalGoal/deleteOrganizationGoal";
 import { useGetCategoriesQuery } from "../../../services/PerformanceManagement/Configurations/getPerformanceConfigs";
 import { getCategoryTypes } from "./../../../services/PerformanceManagement/Configurations/categoryType/getCategoryTypes";
+import Modal from "react-bootstrap/Modal";
 
 const OrganizationalGoal = () => {
   const dispatch = useDispatch();
   const [organizationalGoalId, setOrganizationalGoalId] = useState();
+  const [openModal, setOpenModal] = useState(false);
+
+  const toggleModal = () => {
+    setOpenModal(!openModal);
+  };
 
   const { data: organizationalGoals, loading: organizationGoalsLoading } =
     useSelector(
@@ -107,6 +113,7 @@ const OrganizationalGoal = () => {
           onClick={() => {
             console.log("orgorg", text);
             setOrganizationalGoalId(text.organizationalGoalId);
+            toggleModal()
           }}
         >
           <i className="fa fa-trash" />
@@ -118,7 +125,7 @@ const OrganizationalGoal = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>Client Profile - HRMS admin Template</title>
+        <title>Configurations Organizational Goal</title>
         <meta name="description" content="Reactify Blank Page" />
       </Helmet>
 
@@ -218,39 +225,33 @@ const OrganizationalGoal = () => {
       {/* /Page Content */}
 
       {/* Delete Request Modal */}
-      <div
-        className="modal custom-modal fade"
-        id="delete_organizationalGoal"
-        role="dialog"
-      >
-        <div className="modal-dialog modal-dialog-centered">
+      <Modal show={openModal} centered backdrop="static" keyboard={false}>
+        <div className="modal-90w  modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-body">
               <div className="form-header">
-                <h3>Delete Category</h3>
+                <h3>Delete Organizational Goal</h3>
                 <p>Are you sure want to delete?</p>
               </div>
               <div className="modal-btn delete-action">
                 <div className="row">
                   <div className="col-6">
-                    <a
-                      href="#"
-                      data-dismiss="modal"
+                    <button
+                      className="btn btn-block btn-outline-danger"
                       onClick={() => {
-                        const data = { organizationalGoalId, dispatch };
+                        const data = { organizationalGoalId, dispatch, toggleModal };
                         console.log(">>>>>>>org", organizationalGoalId);
                         dispatch(deleteOrganizationalGoal(data));
+                       
                       }}
-                      className="btn btn-block btn-primary"
                     >
                       Delete
-                    </a>
+                    </button>
                   </div>
                   <div className="col-6">
                     <a
-                      href="#"
-                      data-dismiss="modal"
-                      className="btn btn-block btn-outline-danger"
+                      onClick={() => toggleModal()}
+                      className="btn btn-block btn-primary"
                     >
                       Cancel
                     </a>
@@ -260,7 +261,7 @@ const OrganizationalGoal = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Modal>
       {/* /Delete Request Modal */}
     </div>
   );

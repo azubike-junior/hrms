@@ -44,6 +44,7 @@ import editPerspectiveReducer from "./../services/PerformanceManagement/Configur
 import { getPerformanceConfigQuery } from "../services/PerformanceManagement/Configurations/getPerformanceConfigs";
 import getTargetSourceReducer from "./../services/PerformanceManagement/Configurations/getTargetSources";
 import getRateTypeMetricReducer from "./../services/PerformanceManagement/Configurations/getRateTypeMetric";
+import getKpiByJobReducer from './../services/PerformanceManagement/Configurations/individualKpi/getKpiByJobFunc';
 
 const performanceManagement = combineReducers({
   setupAppraisalReducer,
@@ -81,6 +82,7 @@ const performanceManagement = combineReducers({
   editPerspectiveReducer,
   getTargetSourceReducer,
   getRateTypeMetricReducer,
+  getKpiByJobReducer,
 });
 
 const authenticationManager = combineReducers({

@@ -15,7 +15,7 @@ const initialState = {
 
 export const deleteOrganizationalGoal = createAsyncThunk(
   "deleteOrganizationalGoal",
-  async ({ organizationalGoalId, dispatch }, {rejectWithValue}) => {
+  async ({ organizationalGoalId, dispatch, toggleModal }, {rejectWithValue}) => {
     try {
       const response = await axios.delete(
         `${performanceManagementConfigUrl}/deleteOrganizationalGoal/id?Id=${organizationalGoalId}`
@@ -23,6 +23,7 @@ export const deleteOrganizationalGoal = createAsyncThunk(
 
       if (response.data.responseCode === "00") {
         dispatch(getOrganizationalGoal());
+        toggleModal()
         return response.data;
       }
       return response.data;
